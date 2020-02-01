@@ -19,7 +19,7 @@ $GLOBALS['image_name'] = mysqli_query($db, $query);
 <?php $page_title = 'Quiz Master > Questions'; ?>
 <?php include('header.php'); 
     $page="questions_list.php";
-    verifyLogin($page);
+    //verifyLogin($page);
 ?>
 
 <style>
