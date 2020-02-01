@@ -1,5 +1,5 @@
 <?php 
-$page_title = "Quiz Master > " . $_GET['topic'] . " Quiz";
+$page_title = "ABCD > " . $_GET['topic'] . " Quiz";
 require 'bin/functions.php';
 require 'db_configuration.php';
 include('header.php');
