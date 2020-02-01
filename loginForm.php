@@ -7,7 +7,7 @@ include('header.php');
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign-Up/Login Form</title>
+  <title>Register/Login Form</title>
   <?php include 'css/css.html'; ?>
 </head>
 
