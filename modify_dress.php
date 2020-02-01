@@ -1,5 +1,5 @@
 
-<?php $page_title = 'Modify Question'; ?>
+<?php $page_title = 'Modify Dress'; ?>
 <?php $page_title = 'Quiz Master > Modify Questions'; ?>
 <?php 
     require 'bin/functions.php';
@@ -7,7 +7,7 @@
     include('header.php'); 
     $page="questions_list.php";
     verifyLogin($page);
-
+//Nikhitha will modify this file
 ?>
 <div class="container">
 <style>#title {text-align: center; color: darkgoldenrod;}</style>
