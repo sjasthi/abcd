@@ -3,22 +3,22 @@
 require 'bin/functions.php';
 require 'db_configuration.php';
 
-$query = "SELECT * FROM questions";
+$query = "SELECT * FROM dresses";
 
-$GLOBALS['id'] = mysqli_query($db, $query);
-$GLOBALS['topic'] = mysqli_query($db, $query);
-$GLOBALS['question'] = mysqli_query($db, $query);
-$GLOBALS['choice_1'] = mysqli_query($db, $query);
-$GLOBALS['choice_2'] = mysqli_query($db, $query);
-$GLOBALS['choice_3'] = mysqli_query($db, $query);
-$GLOBALS['choice_4'] = mysqli_query($db, $query);
-$GLOBALS['answer'] = mysqli_query($db, $query);
-$GLOBALS['image_name'] = mysqli_query($db, $query);
+$GLOBALS['data'] = mysqli_query($db, $query);
+// $GLOBALS['topic'] = mysqli_query($db, $query);
+// $GLOBALS['Dress'] = mysqli_query($db, $query);
+// $GLOBALS['choice_1'] = mysqli_query($db, $query);
+// $GLOBALS['choice_2'] = mysqli_query($db, $query);
+// $GLOBALS['choice_3'] = mysqli_query($db, $query);
+// $GLOBALS['choice_4'] = mysqli_query($db, $query);
+// $GLOBALS['answer'] = mysqli_query($db, $query);
+// $GLOBALS['image_name'] = mysqli_query($db, $query);
 ?>
 
-<?php $page_title = 'Quiz Master > Questions'; ?>
+<?php $page_title = 'Quiz Master > dresses'; ?>
 <?php include('header.php'); 
-    $page="questions_list.php";
+    $page="dresses_list.php";
     verifyLogin($page);
 ?>
 
@@ -45,21 +45,21 @@ $GLOBALS['image_name'] = mysqli_query($db, $query);
 <br><br>
 <div class="container-fluid">
     <?php
-        if(isset($_GET['createQuestion'])){
-            if($_GET["createQuestion"] == "Success"){
-                echo '<br><h3>Success! Your question has been added!</h3>';
+        if(isset($_GET['createDress'])){
+            if($_GET["createDress"] == "Success"){
+                echo '<br><h3>Success! Your Dress has been added!</h3>';
             }
         }
 
-        if(isset($_GET['questionUpdated'])){
-            if($_GET["questionUpdated"] == "Success"){
-                echo '<br><h3>Success! Your question has been modified!</h3>';
+        if(isset($_GET['DressUpdated'])){
+            if($_GET["DressUpdated"] == "Success"){
+                echo '<br><h3>Success! Your Dress has been modified!</h3>';
             }
         }
 
-        if(isset($_GET['questionDeleted'])){
-            if($_GET["questionDeleted"] == "Success"){
-                echo '<br><h3>Success! Your question has been deleted!</h3>';
+        if(isset($_GET['DressDeleted'])){
+            if($_GET["DressDeleted"] == "Success"){
+                echo '<br><h3>Success! Your Dress has been deleted!</h3>';
             }
         }
 
@@ -70,44 +70,45 @@ $GLOBALS['image_name'] = mysqli_query($db, $query);
         }
     ?>
    
-    <h2 id="title">Question List</h2><br>
+    <h2 id="title">Dresses List</h2><br>
     
     <div id="customerTableView">
-        <button><a class="btn btn-sm" href="createQuestion.php">Create a Question</a></button>
+        <button><a class="btn btn-sm" href="createDress.php">Create a Dress</a></button>
         <table class="display" id="ceremoniesTable" style="width:100%">
             <div class="table responsive">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Topic</th>
-                    <th>Question</th>
-                    <th>Choice 1</th>
-                    <th>Choice 2</th>
-                    <th>Choice 3</th>
-                    <th>Choice 4</th>
-                    <th>Answer</th>
-                    <th>Image Name</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Did you know?</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>State Name </th>
+                    <th>Key Words</th>
+                    <th>Image url</th>
                     <th>Modify</th>
                     <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                if ($id->num_rows > 0) {
+                // fetch the data from $_GLOBALS
+                if ($data->num_rows > 0) {
                     // output data of each row
-                    while($row = $id->fetch_assoc()) {
+                    while($row = $data->fetch_assoc()) {
                         echo '<tr>
                                 <td>'.$row["id"].'</td>
-                                <td>'.$row["topic"].' </span> </td>
-                                <td>'.$row["question"].'</td>
-                                <td>'.$row["choice_1"].'</td>
-                                <td>'.$row["choice_2"].' </span> </td>
-                                <td>'.$row["choice_3"].'</td>
-                                <td>'.$row["choice_4"].'</td>
-                                <td>'.$row["answer"].' </span> </td>
-                                <td><img class="thumbnailSize" src="' .$row["image_name"]. '" alt="'.$row["image_name"].'"></td>
-                                <td><a class="btn btn-warning btn-sm" href="modifyQuestion.php?id='.$row["id"].'">Modify</a></td>
-                                <td><a class="btn btn-danger btn-sm" href="deleteQuestion.php?id='.$row["id"].'">Delete</a></td>
+                                <td>'.$row["name"].' </span> </td>
+                                <td>'.$row["description"].'</td>
+                                <td>'.$row["did_you_know"].'</td>
+                                <td>'.$row["category"].' </span> </td>
+                                <td>'.$row["type"].'</td>
+                                <td>'.$row["state_name"].'</td>
+                                <td>'.$row["key_words"].' </span> </td>
+                                <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
+                                <td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>
+                                <td><a class="btn btn-danger btn-sm" href="deleteDress.php?id='.$row["id"].'">Delete</a></td>
                             </tr>';
                     }//end while
                 }//end if
