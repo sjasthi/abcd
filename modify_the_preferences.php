@@ -1,5 +1,5 @@
 <?php
-
+//edited by Vishnu
 include_once 'db_configuration.php';
 
 if (isset($_POST['new_rows'])){
