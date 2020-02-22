@@ -107,7 +107,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                                 <td>'.$row["state_name"].'</td>
                                 <td>'.$row["key_words"].' </span> </td>
                                 <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
-                                <td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>
+                                <td><a class="btn btn-warning btn-sm" href="modifyDress.php?id='.$row["id"].'">Modify</a></td>
                                 <td><a class="btn btn-danger btn-sm" href="deleteDress.php?id='.$row["id"].'">Delete</a></td>
                             </tr>';
                     }//end while

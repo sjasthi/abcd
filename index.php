@@ -1,22 +1,21 @@
 <?php 
 require 'bin/functions.php';
 require 'db_configuration.php';
-include('header.php'); 
-
+include('header.php');
 ?>
 
 <html>
     <head>
-        <title>QuizMaster</title>
+        <title>ABCD</title>
     </head>
     <style>
         .image {
             width: 100px;
             height: 100px;
-            padding: 20px 20px 20px 20px;
+            padding: 8px 8px 8px 8px;
             transition: transform .2s;
         }
-        .image:hover {
+        .image:hover {abc
             transform: scale(1.2)
         }
         #table_1 {
@@ -47,8 +46,6 @@ include('header.php');
         text-align: center;
         color: darkgoldenrod;
         }
-
-
     </style>
     <body>
     <?php
@@ -59,13 +56,13 @@ include('header.php');
         }
     ?>
     <h1 id = "title2">Welcome to Project ABCD</h1>
-    <h2 id = "directions">Select a topic to know more about it</h2><br>
+    <h2 id = "directions">Select a dress to know more about it</h2><br>
     
     <?php
 
     $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_TOPICS_PER_ROW'";
-    $sql2 = "SELECT `question` FROM `questions`";
-    $sql3 = "SELECT `image_name` FROM `questions`";
+    $sql2 = "SELECT `name` FROM `dresses`";
+    $sql3 = "SELECT `image_url` FROM `dresses`";
 
     $results1 = mysqli_query($db,$sql1);
     $results2 = mysqli_query($db,$sql2);
@@ -80,7 +77,7 @@ include('header.php');
     
     if(mysqli_num_rows($results2)>0){
         while($row = mysqli_fetch_assoc($results2)){
-            $topics[] = $row;
+            $dresses[] = $row;
         }
     }
 
@@ -92,25 +89,27 @@ include('header.php');
 
     $columns = $column[0]['value'];
 
-    $count= count($topics);
+    $count= count($dresses);
     
     echo "<table id = 'table_2'>
-    <!--Links to quizzes can be put inside the href = -->";
+    <!--Links to each dress can be put inside the href = -->";
     echo "<tr>";
     for($a=0;$a<$count;$a){
         for($b=0;$b<$columns;$b++){
             if($a>=$count){
                 break;
             }else{
-        $topic = $topics[$a]['question'];
-        $pic = $pics[$a]['image_name'];
-        echo "
+
+        $dress = $dresses[$a]['name'];
+        $pic = $pics[$a]['image_url'];
+       echo "
         <td>
-            <a href = 'display_quiz.php?topic=$topic' title = $topic>
-                <image class = 'image' src = $pic></image>
-                <div id = 'title'>$topic</div>
+            <a href = 'display_the_dress.php?topic= $dress' title = $dress>
+                <image class = 'image' src = $pic> </image>
+                <div id = 'title'>$dress </div>
             </a>
-        </td>";
+        </td>
+        ";        
         $a++;
             }
         }
