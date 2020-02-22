@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-    <title> JavaScript Quiz (About) </title>
+    <title> abcd (About) </title>
 </head>
 
 <style>
