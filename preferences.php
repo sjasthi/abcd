@@ -4,7 +4,7 @@ require 'db_configuration.php';
 $page_title = 'Quiz Master > Preferences';
 include('header.php'); 
     $page="questions_list.php";
-    //verifyLogin($page);
+    verifyLogin($page);
 //This file is going to be edited by Vishnu
 $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_PER_ROW'";
 $sql2 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_TO_DISPLAY'";

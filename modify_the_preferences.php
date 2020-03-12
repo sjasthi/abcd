@@ -6,7 +6,7 @@ if (isset($_POST['new_rows'])){
 
     $rows = mysqli_real_escape_string($db, $_POST['new_rows']);
     $questions = mysqli_real_escape_string($db, $_POST['new_questions']);
-    $dress = mysqli_real_escape_string($db, $_POST['new_favorite_dress']);
+    $dress = mysqli_real_escape_string($db, $_POST['new_dress']);
       
     $sql1 = "UPDATE `preferences` SET `value`= $rows WHERE `name` = 'NO_OF_TOPICS_PER_ROW'";
 
