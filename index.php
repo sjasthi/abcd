@@ -102,9 +102,10 @@ include('header.php');
 
         $dress = $dresses[$a]['name'];
         $pic = $pics[$a]['image_url'];
+        $pic = "images/dress_images/" . $pic;
        echo "
         <td>
-            <a href = 'display_the_dress.php?topic= $dress' title = $dress>
+            <a href = 'display_the_dress.php?name=$dress' title = $dress>
                 <image class = 'image' src = $pic> </image>
                 <div id = 'title'>$dress </div>
             </a>
