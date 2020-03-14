@@ -87,7 +87,6 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>State Name </th>
                     <th>Key Words</th>
                     <th>Image url</th>
-                    <th>Display</th>
                     <th>Modify</th>
                     <th>Delete</th>
                 </tr>
@@ -100,7 +99,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     while($row = $data->fetch_assoc()) {
                         echo '<tr>
                                 <td>'.$row["id"].'</td>
-                                <td> </span> <a href="display_the_dress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
+                                <td>'.$row["name"].' </span> </td>
                                 <td>'.$row["description"].'</td>
                                 <td>'.$row["did_you_know"].'</td>
                                 <td>'.$row["category"].' </span> </td>
@@ -108,8 +107,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                                 <td>'.$row["state_name"].'</td>
                                 <td>'.$row["key_words"].' </span> </td>
                                 <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
-                                <td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>
-                                <td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>
+                                <td><a class="btn btn-warning btn-sm" href="modifyDress.php?id='.$row["id"].'">Modify</a></td>
                                 <td><a class="btn btn-danger btn-sm" href="deleteDress.php?id='.$row["id"].'">Delete</a></td>
                             </tr>';
                     }//end while
