@@ -15,11 +15,11 @@ include_once 'db_configuration.php';
     $notes = mysqli_real_escape_string($db,$_POST['notes']);
 
 
-    $sql = "INSERT INTO `dresses` (`id`, `name`, `description`, `did_you_know`, `category`, `type`, `state_name`, `key_words`, `image_url`, `status`, `notes`)
-            VALUES ('10000', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'proposed', 'sample')";
+    $sql = "INSERT INTO `dresses` (`name`, `description`, `did_you_know`, `category`, `type`, `state_name`, `key_words`, `image_url`, `status`, `notes`)
+            VALUES ('$name', '$description', '$did_you_know', '$category', '$type', '$state_name', '$key_words', '$imageName', '$status', '$notes')";
 
     mysqli_query($db, $sql);
-    header('location: list_dresses.php?createQuestion=success');
+    header('location: list_dresses.php?create_dress=success');
 
 //     if($validate){
         
