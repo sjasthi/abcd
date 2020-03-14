@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
 else if(isset($_GET['name'])) {
 
     $name = mysqli_real_escape_string($db, $_GET['name']);
-    $sql = "SELECT * FROM `dresses` WHERE name = " . $name;
+    $sql = "SELECT * FROM `dresses` WHERE name = '" . $name ."'";
     $GLOBALS['row_data'] = mysqli_query($db, $sql);
 }
 
