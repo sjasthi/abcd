@@ -19,7 +19,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 <?php $page_title = 'Quiz Master > dresses'; ?>
 <?php include('header.php'); 
     $page="dresses_list.php";
-    verifyLogin($page);
+   // verifyLogin($page);
 ?>
 
 <style>
