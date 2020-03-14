@@ -2,23 +2,25 @@
 
 include_once 'db_configuration.php';
 
-if (isset($_POST['topic'])){
 
-    echo "HERE";
-    $topic = mysqli_real_escape_string($db, $_POST['topic']);
-    $question = mysqli_real_escape_string($db,$_POST['question']);
-    $choice1 = mysqli_real_escape_string($db,$_POST['choice_1']);
-    $choice2 = mysqli_real_escape_string($db,$_POST['choice_2']);
-    $choice3 = mysqli_real_escape_string($db,$_POST['choice_3']);
-    $choice4 = mysqli_real_escape_string($db,$_POST['choice_4']);
-    $answer = mysqli_real_escape_string($db,$_POST['answer']);
-    $imageName = basename($_FILES["fileToUpload"]["name"]);
-    $validate = true;
-    $validate = emailValidate($answer);
+    $name = mysqli_real_escape_string($db, $_POST['name']);
+    $description = mysqli_real_escape_string($db,$_POST['description']);
+    $did_you_know = mysqli_real_escape_string($db,$_POST['did_you_know']);
+    $category = mysqli_real_escape_string($db,$_POST['category']);
+    $type = mysqli_real_escape_string($db,$_POST['type']);
+    $state_name = mysqli_real_escape_string($db,$_POST['state_name']);
+    $key_words = mysqli_real_escape_string($db,$_POST['key_words']);
+    $imageName = basename($_FILES["fileToUpload"]["fileToUpload"]);
+    $status = mysqli_real_escape_string($db,$_POST['status']);
+    $notes = mysqli_real_escape_string($db,$_POST['notes']);
 
-    echo "SUCCESS";
-    
-    
+
+    $sql = "INSERT INTO `dresses` (`name`, `description`, `did_you_know`, `category`, `type`, `state_name`, `key_words`, `image_url`, `status`, `notes`)
+            VALUES ('$name', '$description', '$did_you_know', '$category', '$type', '$state_name', '$key_words', '$imageName', '$status', '$notes')";
+
+    mysqli_query($db, $sql);
+    header('location: list_dresses.php?create_dress=success');
+
 //     if($validate){
         
 //         $target_dir = "Images/$topic/";
@@ -66,16 +68,7 @@ if (isset($_POST['topic'])){
 //             header('location: createQuestion.php?createQuestion=answerFailed'); 
 //     }        
 
- }//end if
-
-function emailValidate($answer){
-    global $choice1,$choice2,$choice3,$choice4;
-    if($answer == $choice1 or $answer == $choice2 or $answer == $choice3 or $answer == $choice4){
-        return true;
-    }else{
-        return false;
-    }      
-}
+// }end if
 
 
 ?>
