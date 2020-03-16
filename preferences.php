@@ -1,7 +1,7 @@
 <?php 
 require 'bin/functions.php';
 require 'db_configuration.php';
-$page_title = 'Quiz Master > Preferences';
+$page_title = ' Project ABCD > Preferences';
 include('header.php'); 
     $page="questions_list.php";
     //verifyLogin($page);
@@ -29,7 +29,7 @@ $questions = $question[0]['value'];
 <style>#title {text-align: center;color: darkgoldenrod;}</style>
 <html>
     <head>
-        <title>QuizMaster Quiz</title>
+        <title>Project ABCD Quiz</title>
         <style>
         input {
             text-align: center;
