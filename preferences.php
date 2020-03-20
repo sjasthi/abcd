@@ -4,7 +4,7 @@ require 'db_configuration.php';
 $page_title = 'Quiz Master > Preferences';
 include('header.php'); 
     $page="questions_list.php";
-    verifyLogin($page);
+    //verifyLogin($page);
 //This file is going to be edited by Vishnu
 $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_PER_ROW'";
 $sql2 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_TO_DISPLAY'";
@@ -62,18 +62,18 @@ $favoritedress =$favoritedress[0]['value'];
         </tr>
         <tr>
             <td style="width:300px">Number of Dresses Per Row:</td>
-            <td><input disabled type="int" maxlength="2" size="10" value="<?php echo $rows; ?>" title="Current value"></td> 
-            <td><input required type="int" name="new_rows" maxlength="2" size="10" title="Enter a number"></td>
+            <td><input disabled type="int" maxlength="2" size="13" value="<?php echo $rows; ?>" title="Current value"></td> 
+            <td><input required type="int" name="new_rows" maxlength="2" size="13" title="Enter a number!"></td>
         </tr>
         <tr>
             <td style="width:300px">Number of Dresses to Display:</td>
-            <td><input disabled type="int" maxlength="2" size="10" value="<?php echo $questions; ?>" title="Current value"></td> 
-            <td><input required type="int" name="new_questions" maxlength="2" size="10" title="Enter a number"></td>
+            <td><input disabled type="int" maxlength="2" size="13" value="<?php echo $questions; ?>" title="Current value"></td> 
+            <td><input required type="int" name="new_questions" maxlength="2" size="13" title="Enter in another number!"></td>
         </tr>
         <tr>
             <td style="width:300px">Name of Favorite Dress:</td>
-            <td><input disabled type="text" maxlength="10" size="15" value="<?php echo $favoritedress; ?>" title="Current value"></td> 
-            <td><input required type="text" name="new_rows" maxlength="10" size="15" title="Enter a favorite dress"></td>
+            <td><input disabled type="text" maxlength="10" size="13" value="<?php echo $favoritedress; ?>" title="Current value"></td> 
+            <td><input required type="text" name="new_rows" maxlength="20" size="13" title="Enter your favorite dress!"></td>
         </tr>
         </table><br>
         <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify Preferences</button>
