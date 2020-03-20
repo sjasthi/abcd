@@ -7,10 +7,10 @@
     //verifyLogin($page);
 
 ?>
-<?php 
+<!-- <?php 
     $mysqli = NEW MySQLi('localhost','root','','quiz_master');
     $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic ASC");   
-?>
+?> -->
 <link href="css/form.css" rel="stylesheet">
 <style>#title {text-align: center; color: darkgoldenrod;}</style>
 <div class="container">
