@@ -1,14 +1,15 @@
 <?php 
 require 'bin/functions.php';
 require 'db_configuration.php';
-$page_title = 'Quiz Master > Preferences';
+$page_title = ' Project ABCD > Preferences';
 include('header.php'); 
     $page="questions_list.php";
     //verifyLogin($page);
-//This file is going to be edited by Vishnu
+
 $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_PER_ROW'";
 $sql2 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_TO_DISPLAY'";
 $sql3 = "SELECT `comments` FROM `preferences` WHERE `name`= 'NAME_OF_FAVORITE_DRESS'";
+
 
 $results = mysqli_query($db,$sql1);
 $results2 = mysqli_query($db,$sql2);
@@ -39,7 +40,9 @@ $fav_dress =$xyz[0]['comments'];
 <style>#title {text-align: center;color: darkgoldenrod;}</style>
 <html>
     <head>
+
         <title>Project ABCD</title>
+
         <style>
         input {
             text-align: center;

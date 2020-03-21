@@ -1,13 +1,13 @@
 <?php
 /* Main page with two forms: sign up and log in */
-$page_title = 'Quiz Master > Login';
+$page_title = 'Project ABCD > Login';
 require 'db_configuration.php';
 include('header.php');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign-Up/Login Form</title>
+  <title>Register/Login Form</title>
   <?php include 'css/css.html'; ?>
 </head>
 
