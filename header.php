@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if(!isset($page_title)) { $page_title = 'Quiz Master'; }
+if(!isset($page_title)) { $page_title = 'Project ABCD'; }
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ if(!isset($page_title)) { $page_title = 'Quiz Master'; }
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <a href="index.php" title="SILC Quiz Master"><img id="silc" src="Images/index_images/silc_home.jpg"></a> 
+            <a href="index.php" title="SILC Project ABCD"><img id="silc" src="images/about_images/abcd_logo.png"></a> 
             
             <!-- Login / Logout Nav menu item
                Checks if there is a valid session and if so displays "logout"

@@ -21,10 +21,10 @@ if (isset($_POST['id'])){
     if($validate){
     
         if($imageName != ""){
-            //$target_dir = "Images/$name/";
-            $target_file =  basename($_FILES["fileToUpload"]["name"]);
+            $target_dir = "images/dress_images/";
+            $target_file = $target_dir.$imageName;
             $uploadOk = 1;
-            unlink($oldimage);
+           unlink($target_dir.$oldimage);
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             // Check if image file is a actual image or fake image
             if(isset($_POST["submit"])) {
@@ -54,7 +54,7 @@ if (isset($_POST['id'])){
             // if everything is ok, try to upload file
             } else {
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                        echo $target_file;       
+                              
                     $sql = "UPDATE dresses
                     SET name = '$name',
                         description = '$description',
@@ -63,7 +63,7 @@ if (isset($_POST['id'])){
                         type = '$type',
                         state_name = '$state_name',
                         key_words = '$key_words',
-                        image_url = '$target_file'        
+                        image_url = '$imageName'        
                     
                     WHERE id = '$id'";
 
