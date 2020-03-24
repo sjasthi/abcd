@@ -8,13 +8,11 @@ include('header.php');
 
 $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_PER_ROW'";
 $sql2 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_TO_DISPLAY'";
-$sql3 = "SELECT `comments` FROM `preferences` WHERE `name`= 'NAME_OF_FAVORITE_DRESS'";
-
 
 $results = mysqli_query($db,$sql1);
 $results2 = mysqli_query($db,$sql2);
-$results3 = mysqli_query($db,$sql3);
-
+print_r($results);
+echo mysqli_num_rows($results);
 if(mysqli_num_rows($results)>0){
     while($row = mysqli_fetch_assoc($results)){
         $row_count_array[] = $row;
@@ -28,14 +26,9 @@ if(mysqli_num_rows($results2)>0){
     }
 }
 $dresses_count = $dresses_count_array[0]['value'];
-
-
-if(mysqli_num_rows($results3)>0){
-    while($row = mysqli_fetch_assoc($results3)){
-        $xyz[] = $row;
-    }
-}
-$fav_dress =$xyz[0]['comments'];
+// Getting fav dress from cookie
+$cookie_name = "favorite_dress";
+$fav_dress =$_COOKIE[$cookie_name];;
 ?>
 <style>#title {text-align: center;color: darkgoldenrod;}</style>
 <html>
