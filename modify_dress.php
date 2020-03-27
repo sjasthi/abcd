@@ -1,14 +1,34 @@
 
 <?php $page_title = 'Modify Dress'; ?>
-<?php $page_title = 'ABCD Master > Modify Dresses'; ?>
+<?php $page_title = 'Project ABCD > Modify Dresses'; ?>
 <?php 
     require 'bin/functions.php';
     require 'db_configuration.php';
     include('header.php'); 
     $page="list_dresses.php";
     //verifyLogin($page);
-
+ 
 ?>
+<html>
+
+<style>
+.head {
+  text-align: center;
+  font-family: "Times New Roman";
+  color: rgb(200,55,0);
+}
+
+.title {
+  text-align: center;
+  font-family: "Times New Roman";
+  color: rgb(0,200,55);
+}
+
+.words{
+  text-align: center;
+  font-family: "Times New Roman";
+}
+</style>
 <div class="container">
 <style>#title {text-align: center; color: darkgoldenrod;}</style>
 
@@ -68,18 +88,19 @@ if ($result->num_rows > 0) {
       </div>
       
       <div>
+      
         <label for="category">Description</label>
-        <input type="text" class="form-control" name="description" value="'.$row["description"].'"  maxlength="255" style=width:400px required><br>
+        <input type="text" class="form-control" name="description" value="'.$row["description"].'"  maxlength="255" style=width:400px style=height:400px required><br>
       </div>
           
       <div>
-        <label for="level">Did you know? 1</label>
+        <label for="level">Did you know? </label>
         <input type="text" class="form-control" name="did_you_know" value="'.$row["did_you_know"].'"  maxlength="255" style=width:400px required><br>
       </div>
           
       <div>
         <label for="facilitator">Category</label>
-        <input type="text" class="form-control" name="category" value="'.$row["category"].'"  maxlength="255" style=width:400px required><br>
+        <input type="text" class="form-control" name="category" value="'.$row["category"].'"  maxlength="255" style=width:400px ><br>
       </div>
 
       <div>
@@ -89,14 +110,14 @@ if ($result->num_rows > 0) {
 
       <div>
         <label for="required">State name</label>
-        <input type="text" class="form-control" name="state_name" value="'.$row["state_name"].'"  maxlength="255" style=width:400px required><br>
+        <input type="text" class="form-control" name="state_name" value="'.$row["state_name"].'"  maxlength="255" style=width:400px ><br>
       </div>
       
       <div>
         <label for="optional">Key words</label>
-        <input type="text" class="form-control" name="key_words" value="'.$row["key_words"].'"  maxlength="255" style=width:400px required><br>
+        <input type="text" class="form-control" name="key_words" value="'.$row["key_words"].'"  maxlength="255" style=width:400px ><br>
       </div>
-
+      <img  src="' . "images/dress_images/" .$row["image_url"].  '" width= "100" height= "100" alt="'.$row["image_url"].'">
       <div class="form-group col-md-4">
         <label for="cadence">New Image Path (Not Required)</label>
         <input type="file" name="fileToUpload" id="fileToUpload" maxlength="255">
