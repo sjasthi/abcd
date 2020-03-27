@@ -2,7 +2,7 @@
 
 include_once 'db_configuration.php';
 
-
+ 
     $name = mysqli_real_escape_string($db, $_POST['name']);
     $description = mysqli_real_escape_string($db,$_POST['description']);
     $did_you_know = mysqli_real_escape_string($db,$_POST['did_you_know']);
@@ -19,7 +19,7 @@ include_once 'db_configuration.php';
 
     if($validate){
         
-        $target_dir = "images/$dress_images/";
+        $target_dir = "images/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
