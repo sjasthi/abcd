@@ -60,9 +60,11 @@ include('header.php');
     
     <?php
 
-    $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_TOPICS_PER_ROW'";
-    $sql2 = "SELECT `name` FROM `dresses`";
-    $sql3 = "SELECT `image_url` FROM `dresses`";
+
+    $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_DRESSES_PER_ROW'";
+    $sql2 = "SELECT `question` FROM `questions` WHERE `name`= 'NO_DRESSES_TO_DISPLAY";
+    $sql3 = "SELECT `image_name` FROM `questions` WHERE `name`= 'NAME_OF_FAVORITE_DRESS'";
+
 
     $results1 = mysqli_query($db,$sql1);
     $results2 = mysqli_query($db,$sql2);
@@ -102,9 +104,10 @@ include('header.php');
 
         $dress = $dresses[$a]['name'];
         $pic = $pics[$a]['image_url'];
+        $pic = "images/dress_images/" . $pic;
        echo "
         <td>
-            <a href = 'display_the_dress.php?topic= $dress' title = $dress>
+            <a href = 'display_the_dress.php?name=$dress' title = $dress>
                 <image class = 'image' src = $pic> </image>
                 <div id = 'title'>$dress </div>
             </a>

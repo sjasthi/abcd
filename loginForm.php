@@ -1,6 +1,6 @@
 <?php
 /* Main page with two forms: sign up and log in */
-$page_title = 'Quiz Master > Login';
+$page_title = 'Project ABCD > Login';
 require 'db_configuration.php';
 include('header.php');
 ?>
