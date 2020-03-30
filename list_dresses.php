@@ -16,7 +16,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 // $GLOBALS['image_name'] = mysqli_query($db, $query);
 ?>
 
-<?php $page_title = 'Quiz Master > dresses'; ?>
+<?php $page_title = 'ABCD Master > dresses'; ?>
 <?php include('header.php'); 
     $page="dresses_list.php";
     verifyLogin($page);
@@ -86,7 +86,9 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>Type</th>
                     <th>State Name </th>
                     <th>Key Words</th>
-                    <th>Image url</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                    <th>Image</th>
                     <th>Display</th>
                     <th>Modify</th>
                     <th>Delete</th>
@@ -107,6 +109,8 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                                 <td>'.$row["type"].'</td>
                                 <td>'.$row["state_name"].'</td>
                                 <td>'.$row["key_words"].' </span> </td>
+                                <td>'.$row["status"].' </span> </td>
+                                <td>'.$row["notes"].' </span> </td>
                                 <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
                                 <td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>
                                 <td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>
