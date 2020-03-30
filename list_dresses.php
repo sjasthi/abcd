@@ -16,10 +16,12 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 // $GLOBALS['image_name'] = mysqli_query($db, $query);
 ?>
 
-<?php $page_title = 'ABCD Master > dresses'; ?>
+
+<?php $page_title = 'Project ABCD > dresses'; ?>
+
 <?php include('header.php'); 
     $page="dresses_list.php";
-    verifyLogin($page);
+   // verifyLogin($page);
 ?>
 
 <style>
@@ -73,7 +75,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     <h2 id="title">Dresses List</h2><br>
     
     <div id="customerTableView">
-        <button><a class="btn btn-sm" href="createDress.php">Create a Dress</a></button>
+        <button><a class="btn btn-sm" href="create_dress.php">Create a Dress</a></button>
         <table class="display" id="ceremoniesTable" style="width:100%">
             <div class="table responsive">
                 <thead>
