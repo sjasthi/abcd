@@ -28,7 +28,14 @@ if(mysqli_num_rows($results2)>0){
 $dresses_count = $dresses_count_array[0]['value'];
 // Getting fav dress from cookie
 $cookie_name = "favorite_dress";
-$fav_dress =$_COOKIE[$cookie_name];;
+$fav_dress = "";
+if(isset($_COOKIE[$cookie_name])){
+    $fav_dress = $_COOKIE[$cookie_name];
+}
+$form_action = "set_cookie.php";
+if (isset($_SESSION['role'])){
+    $form_action = "modify_the_preferences.php";
+}
 ?>
 <style>#title {text-align: center;color: darkgoldenrod;}</style>
 <html>
@@ -49,7 +56,7 @@ $fav_dress =$_COOKIE[$cookie_name];;
     <div class="container">
         <!--Check the CeremonyCreated and if Failed, display the error message-->
         
-        <form action="modify_the_preferences.php" method="POST">
+        <form action="<?php echo $form_action ?>" method="POST">
         <table style="width:600px">
         <tr>
             <th style="width:300px"></th>
@@ -72,7 +79,13 @@ $fav_dress =$_COOKIE[$cookie_name];;
             <td><input required type="text" name="fav_dress" maxlength="20" size="13" title="Enter your favorite dress!"></td>
         </tr>
         </table><br>
-        <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify Preferences</button>
+        <?php
+            if (isset($_SESSION['role'])){
+                echo '<button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify Preferences</button>';
+            } else {
+                echo '<button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Set Cookie</button>';
+            }
+        ?>
         </form>
     </div>
     </body>
