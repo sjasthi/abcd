@@ -1,4 +1,4 @@
-<?php $page_title = 'Quiz Master > About'; ?>
+<?php $page_title = 'Project ABCD > About'; ?>
 <?php include('header.php'); ?>
 
 <!DOCTYPE html>
@@ -54,7 +54,7 @@
     <!--this is the tool bar-->
 
     <h2 id="title">About Us</h2>
-    <h4 class="directions">This Quiz Master project was created in the 2018-2019 school year by the current SILC CS320 (PHP) class students. Each of us have picked up a topic and prepared a set of 10-20 questions. We have then plugged in those questions into the Quiz Master application we have developed in the class. We used GitHub to download the master baseline and to ingegrate our changes. This year we have added some changes to make your experience more enjoyable. Take the quiz and test your knowledge about India and its culture. Enjoy! <br> </h4>
+    <h4 class="directions">Project ABCD was created in the 2018-2019 school year by the current SILC CS320 (PHP) class students. Each of us have picked up a topic and prepared a set of 10-20 questions. We have then plugged in those questions into the Project ABCD application we have developed in the class. We used GitHub to download the master baseline and to ingegrate our changes. This year we have added some changes to make your experience more enjoyable. Take the quiz and test your knowledge about India and its culture. Enjoy! <br> </h4>
     <h4 class="directions">Click on each image to learn more about us.</h4>
 </body>
 

@@ -15,9 +15,11 @@ if (isset($_POST['id'])){
    $oldimage = mysqli_real_escape_string($db, $_POST['oldimage']);
     $imageName = basename($_FILES["fileToUpload"]["name"]);
     $validate = true;
+    $status = mysqli_real_escape_string($db, $_POST['status']);
+    $notes = mysqli_real_escape_string($db, $_POST['notes']);
     //$validate = emailValidate($answer);
     
-    
+
     if($validate){
     
         if($imageName != ""){
@@ -63,12 +65,14 @@ if (isset($_POST['id'])){
                         type = '$type',
                         state_name = '$state_name',
                         key_words = '$key_words',
-                        image_url = '$imageName'        
+                        image_url = '$imageName',  
+                        status = '$status',
+                        notes = '$notes'      
                     
                     WHERE id = '$id'";
 
                     mysqli_query($db, $sql);
-                    header('location: list_dresses.php?dressUpdated=Success');
+                  header('location: list_dresses.php?dressUpdated=Success');
                     }
                 }
         }
@@ -83,7 +87,9 @@ if (isset($_POST['id'])){
                         category = '$category',
                         type = '$type',
                         state_name = '$state_name',
-                        key_words = '$key_words'
+                        key_words = '$key_words',
+                        status = '$status', 
+                        notes = '$notes'   
                 
                 WHERE id = '$id'";
 
