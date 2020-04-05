@@ -60,7 +60,14 @@ include('header.php');
     
     <?php
 
-    $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_TOPICS_PER_ROW'";
+
+
+// (Jasthi) Here are the values we should use; This is the contract.
+// NO_OF_DRESSES_TO_DISPLAY (default value in the table = 50 in "value" column)
+// NO_OF_DRESSES_PER_ROW (default value in the table = 5 in "value" column).
+// NAME_OF_FAVORITE_DRESS (default is "Saree" in "comments" column)
+
+    $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_PER_ROW'";
     $sql2 = "SELECT `name` FROM `dresses`";
     $sql3 = "SELECT `image_url` FROM `dresses`";
 
