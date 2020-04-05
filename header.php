@@ -30,7 +30,7 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <a href="index.php" title="SILC Project ABCD"><img id="silc" src="images/about_images/abcd_logo.png"></a> 
+            <a href="index.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo.png"></a> 
             
             <!-- Login / Logout Nav menu item
                Checks if there is a valid session and if so displays "logout"
@@ -58,7 +58,7 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="preferences.php">Preferences<span class="sr-only">(current)</span></a></li>';
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="about.php">About<span class="sr-only">(current)</span></a></li>';
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="help.php">Help<span class="sr-only">(current)</span></a></li>';
-                echo '<li class="nav-item active"><a class="nav-link" id="header" href="login.php">Logout<span class="sr-only">(current)</span></a></li>';
+                echo '<li class="nav-item active"><a class="nav-link" id="header" href="login.php">Login<span class="sr-only">(current)</span></a></li>';
            }
             ?>
         </li>
