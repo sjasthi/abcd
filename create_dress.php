@@ -4,7 +4,7 @@
     require 'db_configuration.php';
     include('header.php'); 
     $page="list_dresses.php";
-    //verifyLogin($page); 
+    //verifyLogin($page);
 
 ?>
 <?php 
@@ -13,7 +13,19 @@
 ?>
 
 <div class="container">
-<style>#title {text-align: center; color: darkgoldenrod;}</style>
+<style>
+
+    #title {
+        text-align: center; 
+        color: darkgoldenrod;
+}
+
+    #guidance {
+        color: grey;
+        font-size: 10px;
+    }
+
+</style>
     <!--Check the CeremonyCreated and if Failed, display the error message-->
     <?php
     // if(isset($_GET['createQuestion'])){
@@ -58,23 +70,23 @@
         </div>
 
         <div>
-            <label>Category</label> <br>
-            <input style=width:400px class="form-control" type="text" name="category" maxlength="100" size="50" required title="Please enter a category"></input>
+            <label>Category</label> <label id="guidance"> (regional, religious, people, dresses, festivals, other)</label><br>
+            <input style=width:400px class="form-control" type="text" name="category" maxlength="100" size="50"></input>
         </div>
 
         <div>
-            <label>Type</label> <br>
+            <label>Type</label> <label id="guidance"> (boys, girls, men, women, other)</label> <br>
             <input style=width:400px class="form-control" type="text" name="type" maxlength="100" size="50" required title="Please enter a type"></input>
         </div>
 
         <div>
             <label>State Name</label> <br>
-            <input style=width:400px class="form-control" type="text" name="state_name" maxlength="100" size="50" required title="Please enter a state name"></input>
+            <input style=width:400px class="form-control" type="text" name="state_name" maxlength="100" size="50"></input>
         </div>
 
         <div>
             <label>Key Words</label> <br>
-            <input style=width:400px class="form-control" type="text" name="key_words" maxlength="100" size="50" required title="Please enter a name"></input>
+            <input style=width:400px class="form-control" type="text" name="key_words" maxlength="100" size="50"</input>
         </div>
 
         <div>
@@ -113,4 +125,3 @@ var loadFile = function(event) {
 };
 
 </script>
-

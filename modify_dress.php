@@ -28,6 +28,10 @@
   text-align: center;
   font-family: "Times New Roman";
 }
+
+#guidance {
+        color: grey;
+        font-size: 10px;
 </style>
 <div class="container">
 <style>#title {text-align: center; color: darkgoldenrod;}</style>
@@ -71,6 +75,23 @@ if ($result->num_rows > 0) {
             echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image does not exist, Please Try Again!</h3>';
         }
       }
+      // Obtain status value from DB and set as selected for drop down
+      $status_array=['proposed', 'approved', 'writeup_done' , 'art_work_done' , 'designed', 'completed'];
+      $res = $db->query($sql);
+        $r = $res->fetch_assoc();
+      
+        $num = count($status_array);
+
+        for ($i=0 ; $i < $num ; $i++) {
+
+          if ($status_array[$i] == $r["status"]){
+            $status_array[$i] = "$status_array[$i]" .'"'. ' selected = "selected" ' ;
+            }
+        else $status_array[$i] = "$status_array[$i]";
+        }
+    
+
+
 
       echo '<h2 id="title">Modify Dress</h2><br>';
       echo '<form action="modify_the_dress.php" method="POST" enctype="multipart/form-data">
@@ -89,37 +110,56 @@ if ($result->num_rows > 0) {
       
       <div>
       
-        <label for="category">Description</label>
-        <input type="text" class="form-control" name="description" value="'.$row["description"].'"  maxlength="255" style=width:400px style=height:400px required><br>
+        <label for="description">Description</label>
+        <textarea style=width:400px class="form-control" name= "description" cols="55" rows="6" required>'.$row["description"].'</textarea>
+        </div>
+          
+      <div>
+        <label for="did_you_know">Did you know? </label>
+        <textarea style=width:400px class="form-control" name= "did_you_know" cols="55" rows="2" required>'.$row["did_you_know"].'</textarea>
       </div>
           
       <div>
-        <label for="level">Did you know? </label>
-        <input type="text" class="form-control" name="did_you_know" value="'.$row["did_you_know"].'"  maxlength="255" style=width:400px required><br>
-      </div>
-          
-      <div>
-        <label for="facilitator">Category</label>
+        <label for="category">Category</label> <label id="guidance"> (regional, religious, people, dresses, festivals, other)</label><br>
         <input type="text" class="form-control" name="category" value="'.$row["category"].'"  maxlength="255" style=width:400px ><br>
       </div>
 
       <div>
-        <label for="description">Type</label>
+        <label for="type">Type</label> <label id="guidance"> (boys, girls, men, women, other)</label> <br>
         <input type="text" class="form-control" name="type" value="'.$row["type"].'"  maxlength="255" style=width:400px required><br>
       </div>
 
       <div>
-        <label for="required">State name</label>
+        <label for="state_name">State name</label>
         <input type="text" class="form-control" name="state_name" value="'.$row["state_name"].'"  maxlength="255" style=width:400px ><br>
       </div>
-      
+
       <div>
-        <label for="optional">Key words</label>
-        <input type="text" class="form-control" name="key_words" value="'.$row["key_words"].'"  maxlength="255" style=width:400px ><br>
+      <label for="key_words">Key words</label>
+      <input type="text" class="form-control" name="key_words" value="'.$row["key_words"].'"  maxlength="255" style=width:400px ><br>
+    </div>
+
+      <div>
+            <label>Status</label> <br>
+            <select style=width:400px class="form-control" id="status" name="status" >
+                <option value="'.$status_array[0].'">Proposed</option>
+                <option value="'.$status_array[1].'">Approved</option>
+                <option value="'.$status_array[2].'">Write-up Done</option>
+                <option value="'.$status_array[3].'">Art Work Done</option>
+                <option value="'.$status_array[4].'">Design Done</option>
+                <option value="'.$status_array[5].'">Completed</option>
+            </select>
+        </div>
+
+        <div>
+        <label for="notes">Notes</label>
+        <input type="text" class="form-control" name="notes" value="'.$row["notes"].'"  maxlength="255" style=width:400px><br>
       </div>
+
+      
       <img  src="' . "images/dress_images/" .$row["image_url"].  '" width= "100" height= "100" alt="'.$row["image_url"].'">
       <div class="form-group col-md-4">
-        <label for="cadence">New Image Path (Not Required)</label>
+        <label for="cadence"> Choose a file to change above image (Optional)</label>
         <input type="file" name="fileToUpload" id="fileToUpload" maxlength="255">
       </div>
       <input type="hidden" class="form-control" name="oldimage" value="'.$row["image_url"].'" maxlength="255" required>
@@ -127,6 +167,8 @@ if ($result->num_rows > 0) {
       <div class="text-left">
           <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify Dress</button>
       </div>
+      <br>
+
       <br> <br>
       
       </form>';
