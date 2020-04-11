@@ -11,8 +11,7 @@ $sql2 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_TO_DISPL
 
 $results = mysqli_query($db,$sql1);
 $results2 = mysqli_query($db,$sql2);
-print_r($results);
-echo mysqli_num_rows($results);
+
 if(mysqli_num_rows($results)>0){
     while($row = mysqli_fetch_assoc($results)){
         $row_count_array[] = $row;
@@ -66,17 +65,17 @@ if (isset($_SESSION['role'])){
         <tr>
             <td style="width:300px">Number of Dresses Per Row:</td>
             <td><input disabled type="int" maxlength="2" size="13" value="<?php echo $row_count; ?>" title="Current value"></td> 
-            <td><input required type="int" name="row_count" maxlength="2" size="13" title="Enter a number!"></td>
+            <td><input required type="int" name="row_count" maxlength="2" size="13" value="<?php echo $row_count; ?>" title="Enter a number!"></td>
         </tr>
         <tr>
             <td style="width:300px">Number of Dresses to Display:</td>
             <td><input disabled type="int" maxlength="2" size="13" value="<?php echo $dresses_count; ?>" title="Current value"></td> 
-            <td><input required type="int" name="dresses_count" maxlength="2" size="13" title="Enter in another number!"></td>
+            <td><input required type="int" name="dresses_count" maxlength="2" size="13" value="<?php echo $dresses_count; ?>" title="Enter in another number!"></td>
         </tr>
         <tr>
             <td style="width:300px">Name of Favorite Dress:</td>
             <td><input disabled type="text" maxlength="10" size="13" value="<?php echo $fav_dress; ?>" title="Current value"></td> 
-            <td><input required type="text" name="fav_dress" maxlength="20" size="13" title="Enter your favorite dress!"></td>
+            <td><input required type="text" name="fav_dress" maxlength="20" size="13" value="<?php echo $fav_dress; ?>" title="Enter your favorite dress!"></td>
         </tr>
         </table><br>
         <?php
