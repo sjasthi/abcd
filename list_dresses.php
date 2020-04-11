@@ -97,6 +97,24 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 </tr>
                 </thead>
                 <tbody>
+                <strong>Hide: </strong>
+                <input type="checkbox" class="hidecol" value="id" id="col_1" />&nbsp;Id&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="name" id="col_2" />&nbsp;Name&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="description" id="col_3" />&nbsp;Description&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="did_you_know" id="col_4" />&nbsp;Did You Know&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="category" id="col_5" />&nbsp;Category&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="type" id="col_6" />&nbsp;Type&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="state_name" id="col_7" />&nbsp;State Name&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="key_words" id="col_8" />&nbsp;Key Words&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="status" id="col_9" />&nbsp;Status&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="notes" id="col_10" />&nbsp;Notes&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="image" id="col_11" />&nbsp;Image&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="display" id="col_12" />&nbsp;Display&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="modify" id="col_13" />&nbsp;Modify&nbsp;&nbsp;
+                <input type="checkbox" class="hidecol" value="delete" id="col_14" />&nbsp;Delete&nbsp;&nbsp; <br> <br>
+
+
+
                 <?php
                 // fetch the data from $_GLOBALS
                 if ($data->num_rows > 0) {
@@ -195,6 +213,42 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         } );
         
     } );
+
+    $(document).ready(function(){
+
+// Checkbox click
+$(".hidecol").click(function(){
+
+    var id = this.id;
+    var splitid = id.split("_");
+    var colno = splitid[1];
+    var checked = true;
+     
+    // Checking Checkbox state
+    if($(this).is(":checked")){
+        checked = true;
+    }else{
+        checked = false;
+    }
+    setTimeout(function(){
+        if(checked){
+            $('#ceremoniesTable td:nth-child('+colno+')').hide();
+            $('#ceremoniesTable th:nth-child('+colno+')').hide();
+        } else{
+            $('#ceremoniesTable td:nth-child('+colno+')').show();
+            $('#ceremoniesTable th:nth-child('+colno+')').show();
+        }
+
+    }, 0000);
+
+});
+});
+
+
+
+
+
+
 
 </script>
 </body>
