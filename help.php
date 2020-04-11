@@ -48,12 +48,28 @@
     <body>
    
 <h2 id="title">Welcome to the Project ABCD Website!</strong></h2>
-<h5>Summer 2019.ICS325.Version 2.0</h5>
-<p>Each of the icons on the home page represents a topic. When you mouse over any of the icons, the name of the topic will be shown. Click on any of them to take a short quiz.</p>
-<p>Each topic has 5 or 10 questions, in&nbsp;a random order each time. After answering all questions on the quiz and hitting "submit", your score will shown! You can always click on the silc icon to go back to the main page.</p>
-<p><img src="Images/help/icons.jpg" alt="icons" width="600" height="400"><p>
-<p>While logged in as an Admin, users will be able to add additional quiz questions and topics. Admin users will also be able to modify and delete existing questions. All of the quiz questions are being stored on MYSQL database.</p>
-<p>The number of questions per test and the the number of quiz icons per row on the home page can be changed by the admin.</p>
-<p>This site was updated to PHP format by the students of course ICS 325 summer 2019, Metro State University.</p>
+<h5></h5>
+<p>Each of the icon on the home page represents a different type of dress. When you mouse over any of the icons, the names of the dresses will be shown. Click on any of them to learn more about the dress.</p>
+<p>Users don't have to be logged in to  <button><a class="btn btn-sm" href=  >Create a Dress</a></button> , 
+<td><a class="btn btn-warning btn-sm" href >Modify</a></td>
+, and 
+<td><a class="btn btn-danger btn-sm" href= >Delete</a></td>
+ 
+a dress which are all in "List" page.
+ Also while logged in as an Admin, users will be able to see the button <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify Preferences</button>
+ next to 
+ <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Set Cookie</button>. </p>
+<p>You can set up your favorite dress by going to "Preferences" and typing in your favorite dress of your choice and by clicking  
+<button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Set Cookie</button>
+ you have your favorite dress all set up in "My favorite".</p>
+<br>
+<p>The number of Dress icons per row and the number of dresses to display on the home page can be changed by the admin in "Preferences".</p>
+<br>
+<p>You can always click on the "A Bite Of Culture In Dresses" icon to go back to the home page.            
+<a href title="SILC Project ABCD"><img id="silc" src="images/about_images/abcd_logo.png"></a> 
+
+<br>
+<br>
+<p>This site was updated to PHP format by the students of SILC CS320 (PHP) class.</p>
 
 </html>
