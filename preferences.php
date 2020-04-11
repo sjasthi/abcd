@@ -3,7 +3,7 @@ require 'bin/functions.php';
 require 'db_configuration.php';
 $page_title = ' Project ABCD > Preferences';
 include('header.php'); 
-    $page="questions_list.php";
+    $page="preferences.php";
     //verifyLogin($page);
 
 $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_PER_ROW'";
@@ -31,10 +31,12 @@ $fav_dress = "";
 if(isset($_COOKIE[$cookie_name])){
     $fav_dress = $_COOKIE[$cookie_name];
 }
+
+// we will rely only on cookie; ditch the db values for updates
 $form_action = "set_cookie.php";
-if (isset($_SESSION['role'])){
-    $form_action = "modify_the_preferences.php";
-}
+// if (isset($_SESSION['role'])){
+//     $form_action = "modify_the_preferences.php";
+// }
 ?>
 <style>#title {text-align: center;color: darkgoldenrod;}</style>
 <html>
@@ -79,11 +81,12 @@ if (isset($_SESSION['role'])){
         </tr>
         </table><br>
         <?php
-            if (isset($_SESSION['role'])){
-                echo '<button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify Preferences</button>';
-            } else {
+            // we will ditch the database persistance and rely on only the cookie for preferences
+            // if (isset($_SESSION['role'])){
+            //     echo '<button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify Preferences</button>';
+            // } else {
                 echo '<button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Set Cookie</button>';
-            }
+            // }
         ?>
         </form>
     </div>
