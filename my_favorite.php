@@ -11,7 +11,7 @@ if(!isset($_COOKIE[$cookie_name])) {
      echo "Your favorite dress is not set, go to preferences and enter your favorite dress.";
 } else {
      $favoriteDressName = $_COOKIE[$cookie_name];
-    header("Location:/abcd/display_the_dress.php?name=$favoriteDressName");
+    header('location: display_the_dress.php?name='.$favoriteDressName);
 }
 ?>
 </body>
