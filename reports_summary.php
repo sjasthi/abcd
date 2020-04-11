@@ -60,7 +60,7 @@ include('header.php');
           $result = mysqli_query($db, "SELECT * FROM dresses WHERE status='art_work_done'");
           $num_rows = mysqli_num_rows($result);
           echo $num_rows;
-          ?>s
+          ?>
           </td>
         </tr>
 
