@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $page_title = ' Project ABCD > My favorite';
 include('header.php'); 
 $cookie_name = "favorite_dress";
