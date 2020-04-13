@@ -29,6 +29,12 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         text-align: center;
         color: darkgoldenrod;
     }
+    #toggle {
+        color: 	#4397fb;
+    }
+    #toggle:hover {
+        color: #467bc7
+    }
     thead input {
         width: 100%;
     }
@@ -41,6 +47,8 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         -webkit-transform:scale(3.5);
         transform:scale(3.5);
     }
+
+    
 </style>
 
 <!-- Page Content -->
@@ -97,6 +105,24 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 </tr>
                 </thead>
                 <tbody>
+                <div>
+                    <strong> Toggle column: </strong> 
+                    <a id="toggle" class="toggle-vis" data-column="0">Id</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="1">Name</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="2">Description</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="3">Did You Know</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="4">Category</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="5">Type</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="6">State Name</a> -
+                    <a id="toggle" class="toggle-vis" data-column="7">Key Words</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="8">Status</a> -
+                    <a id="toggle" class="toggle-vis" data-column="9">Notes</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="10">Image</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="11">Display</a> -
+                    <a id="toggle" class="toggle-vis" data-column="12">Modify</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="13">Delete</a> 
+                </div> <br>
+                
                 <?php
                 // fetch the data from $_GLOBALS
                 if ($data->num_rows > 0) {
@@ -138,6 +164,11 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 
 <!--JQuery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+
+<script type="text/javascript" charset="utf8"
+        src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
 <!--Data Table-->
 <script type="text/javascript" charset="utf8"
@@ -195,6 +226,26 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         } );
         
     } );
+
+    $(document).ready(function() {
+        
+    var table = $('#ceremoniesTable').DataTable( {
+        retrieve: true,
+        "scrollY": "200px",
+        "paging": false
+    } );
+ 
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+ 
+        // Get the column API object
+        var column = table.column( $(this).attr('data-column') );
+ 
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    } );
+} );
+
 
 </script>
 </body>
