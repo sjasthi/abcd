@@ -16,16 +16,24 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 // $GLOBALS['image_name'] = mysqli_query($db, $query);
 ?>
 
+
 <?php $page_title = 'Project ABCD > dresses'; ?>
+
 <?php include('header.php'); 
     $page="dresses_list.php";
-    verifyLogin($page);
+   // verifyLogin($page);
 ?>
 
 <style>
     #title {
         text-align: center;
         color: darkgoldenrod;
+    }
+    #toggle {
+        color: 	#4397fb;
+    }
+    #toggle:hover {
+        color: #467bc7
     }
     thead input {
         width: 100%;
@@ -39,6 +47,8 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         -webkit-transform:scale(3.5);
         transform:scale(3.5);
     }
+
+    
 </style>
 
 <!-- Page Content -->
@@ -73,7 +83,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     <h2 id="title">Dresses List</h2><br>
     
     <div id="customerTableView">
-        <button><a class="btn btn-sm" href="createDress.php">Create a Dress</a></button>
+        <button><a class="btn btn-sm" href="create_dress.php">Create a Dress</a></button>
         <table class="display" id="ceremoniesTable" style="width:100%">
             <div class="table responsive">
                 <thead>
@@ -86,12 +96,33 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>Type</th>
                     <th>State Name </th>
                     <th>Key Words</th>
-                    <th>Image url</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                    <th>Image</th>
+                    <th>Display</th>
                     <th>Modify</th>
                     <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
+                <div>
+                    <strong> Toggle column: </strong> 
+                    <a id="toggle" class="toggle-vis" data-column="0">Id</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="1">Name</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="2">Description</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="3">Did You Know</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="4">Category</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="5">Type</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="6">State Name</a> -
+                    <a id="toggle" class="toggle-vis" data-column="7">Key Words</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="8">Status</a> -
+                    <a id="toggle" class="toggle-vis" data-column="9">Notes</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="10">Image</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="11">Display</a> -
+                    <a id="toggle" class="toggle-vis" data-column="12">Modify</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="13">Delete</a> 
+                </div> <br>
+                
                 <?php
                 // fetch the data from $_GLOBALS
                 if ($data->num_rows > 0) {
@@ -99,15 +130,18 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     while($row = $data->fetch_assoc()) {
                         echo '<tr>
                                 <td>'.$row["id"].'</td>
-                                <td>'.$row["name"].' </span> </td>
+                                <td> </span> <a href="display_the_dress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
                                 <td>'.$row["description"].'</td>
                                 <td>'.$row["did_you_know"].'</td>
                                 <td>'.$row["category"].' </span> </td>
                                 <td>'.$row["type"].'</td>
                                 <td>'.$row["state_name"].'</td>
                                 <td>'.$row["key_words"].' </span> </td>
+                                <td>'.$row["status"].' </span> </td>
+                                <td>'.$row["notes"].' </span> </td>
                                 <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
-                                <td><a class="btn btn-warning btn-sm" href="modifyDress.php?id='.$row["id"].'">Modify</a></td>
+                                <td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>
+                                <td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>
                                 <td><a class="btn btn-danger btn-sm" href="deleteDress.php?id='.$row["id"].'">Delete</a></td>
                             </tr>';
                     }//end while
@@ -130,6 +164,11 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 
 <!--JQuery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+
+<script type="text/javascript" charset="utf8"
+        src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
 <!--Data Table-->
 <script type="text/javascript" charset="utf8"
@@ -187,6 +226,26 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         } );
         
     } );
+
+    $(document).ready(function() {
+        
+    var table = $('#ceremoniesTable').DataTable( {
+        retrieve: true,
+        "scrollY": "200px",
+        "paging": false
+    } );
+ 
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+ 
+        // Get the column API object
+        var column = table.column( $(this).attr('data-column') );
+ 
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    } );
+} );
+
 
 </script>
 </body>
