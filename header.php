@@ -60,7 +60,7 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="preferences.php">Preferences<span class="sr-only">(current)</span></a></li>';
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="about.php">About<span class="sr-only">(current)</span></a></li>';
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="help.php">Help<span class="sr-only">(current)</span></a></li>';
-                echo '<li class="nav-item active"><a class="nav-link" id="header" href="login.php">Login<span class="sr-only">(current)</span></a></li>';
+                echo '<li class="nav-item active"><a class="nav-link" id="header" href="loginForm.php">Login<span class="sr-only">(current)</span></a></li>';
            }
             ?>
         </li>
