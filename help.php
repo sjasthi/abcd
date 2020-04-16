@@ -50,7 +50,7 @@
 <h2 id="title">Welcome to the Project ABCD Website!</strong></h2>
 <h5></h5>
 <p>Each of the icon on the home page represents a different type of dress. When you mouse over any of the icons, the names of the dresses will be shown. Click on any of them to learn more about the dress.</p>
-<p>Users don't have to be logged in to  <button><a class="btn btn-sm" href=  >Create a Dress</a></button> , 
+<p>Users have to be logged in as a admin to  <button><a class="btn btn-sm" href=  >Create a Dress</a></button> , 
 <td><a class="btn btn-warning btn-sm" href >Modify</a></td>
 , and 
 <td><a class="btn btn-danger btn-sm" href= >Delete</a></td>
