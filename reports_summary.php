@@ -89,5 +89,80 @@ include('header.php');
       </table>
 
     </div>
+
+    <div class="right-content">
+   <div class="container">
+     <!--style="margin: 0 auto; position: relative; padding-left: 350px;"-->
+
+       <h3 style = "color: #01B0F1;">Summary:</h3>
+
+      <table class="datatable table table-striped table-bordered datatable-style"
+             style="width: 50%; font-weight: bold;">
+
+        <tr id="table-first-row">
+          <td colspan="2">Status of Type</td>
+        </tr>
+
+
+        <tr>
+          <td>Boys</td>
+          <td>
+          <?php
+          $result = mysqli_query($db, "SELECT * FROM `dresses` WHERE type='boys'");
+          $num_rows = mysqli_num_rows($result);
+          echo $num_rows;
+          ?>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Men</td>
+          <td>
+          <?php
+          $result = mysqli_query($db, "SELECT * FROM `dresses` WHERE type='men'");
+          $num_rows = mysqli_num_rows($result);
+          echo $num_rows;
+          ?>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Women</td>
+          <td>
+          <?php
+          $result = mysqli_query($db, "SELECT * FROM dresses WHERE type='women'");
+          $num_rows = mysqli_num_rows($result);
+          echo $num_rows;
+          ?>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Girls</td>
+          <td>
+          <?php
+          $result = mysqli_query($db, "SELECT * FROM dresses WHERE type='girls'");
+          $num_rows = mysqli_num_rows($result);
+          echo $num_rows;
+          ?>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Other</td>
+          <td>
+          <?php
+          $result = mysqli_query($db, "SELECT * FROM dresses WHERE type='other'");
+          $num_rows = mysqli_num_rows($result);
+          echo $num_rows;
+          ?>
+          </td>
+        </tr>
+
+
+      </table>
+
+    </div>
+    
 </body>
 </html>
