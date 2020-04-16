@@ -119,9 +119,12 @@ include('header.php');
             array_push($key_words, $p);
            }  
         }
-    
-     $count = array_count_values($key_words);
-        arsort($count);
+       
+       $trimmed_key_words = array_map('trim', $key_words);
+        sort($trimmed_key_words); 
+     $count = array_count_values($trimmed_key_words);
+      
+     arsort($count);
 
         echo "
         <h3 style = 'color: #01B0F1;'>Key Word Summary:</h3>
