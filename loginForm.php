@@ -1,4 +1,5 @@
 <?php
+ob_start();
 /* Main page with two forms: sign up and log in */
 $page_title = 'Project ABCD > Login';
 require 'db_configuration.php';
