@@ -89,7 +89,7 @@ include('header.php');
       </table>
 
     </div>
-
+<br>
     <div class="right-content">
    <div class="container">
      <!--style="margin: 0 auto; position: relative; padding-left: 350px;"-->
@@ -160,9 +160,110 @@ include('header.php');
         </tr>
 
 
-      </table>
+      
 
     </div>
+<br>
+    <div class="right-content">
+
+   <div class="container">
+
+     <!--style="margin: 0 auto; position: relative; padding-left: 350px;"-->
+
+       <!--<h3 style = "color: #01B0F1;">Key Words Summary:</h3> -->
+
+      <table class="datatable table table-striped table-bordered datatable-style"
+             style="width: 50%; font-weight: bold;">
+
+        
+        <?php 
+        $result = mysqli_query($db, "SELECT key_words FROM `dresses` WHERE key_words != '' or key_words != ' '");
+      
+     $db_values = array();
+     $key_words = array();
+
+     while ($key_result = mysqli_fetch_assoc($result)){
+        while ( list($key, $val) = each($key_result))  {
+        array_push($db_values, explode(",",  $val));
+        }
+    }
+      
+        while ( list($key,  $val) = each($db_values))  {
+           while (list($t, $p) = each($val)) {
+            array_push($key_words, $p);
+           }  
+        }
     
+     $count = array_count_values($key_words);
+        arsort($count);
+
+        echo "
+        <h3 style = 'color: #01B0F1;'>Key Word Summary:</h3>
+        <tr>
+          <th>Key Words</th>
+          <th>Frequency</th>
+        </tr> ";
+
+     while (list($key,  $val) = each($count))  {
+         echo "
+         <tr>
+          <td>$key</td>
+          <td>$val</td>
+          </tr> ";
+
+     }
+?>
+
+<br>
+<div class="right-content">
+
+   <div class="container">
+
+     <!--style="margin: 0 auto; position: relative; padding-left: 350px;"-->
+
+       <!--<h3 style = "color: #01B0F1;">Key Words Summary:</h3> -->
+
+      <table class="datatable table table-striped table-bordered datatable-style"
+             style="width: 50%; font-weight: bold;">
+
+        
+        <?php 
+        $result = mysqli_query($db, "SELECT category FROM `category` WHERE category != '' or category != ' '");
+      
+     $db_values = array();
+     $category = array();
+
+     while ($cat_result = mysqli_fetch_assoc($result)){
+        while ( list($cat, $val) = each($cat_result))  {
+        array_push($db_values, explode(",",  $val));
+        }
+    }
+      
+        while ( list($cat,  $val) = each($db_values))  {
+           while (list($t, $p) = each($val)) {
+            array_push($category, $p);
+           }  
+        }
+    
+     $count = array_count_values($category);
+        arsort($count);
+
+        echo "
+        <h3 style = 'color: #01B0F1;'>Key Word Summary:</h3>
+        <tr>
+          <th>Key Words</th>
+          <th>Frequency</th>
+        </tr> ";
+
+     while (list($cat,  $val) = each($count))  {
+         echo "
+         <tr>
+          <td>$cat</td>
+          <td>$val</td>
+          </tr> ";
+
+     }
+?>
+        </table>
 </body>
 </html>
