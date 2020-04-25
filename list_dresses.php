@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require 'bin/functions.php';
 require 'db_configuration.php';
@@ -47,7 +48,6 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         -webkit-transform:scale(3.5);
         transform:scale(3.5);
     }
-
     
 </style>
 
@@ -128,28 +128,61 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 if ($data->num_rows > 0) {
                     // output data of each row
                     while($row = $data->fetch_assoc()) {
-                        echo '<tr>
-                                <td>'.$row["id"].'</td>
-                                <td> </span> <a href="display_the_dress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
-                                <td>'.$row["description"].'</td>
-                                <td>'.$row["did_you_know"].'</td>
-                                <td>'.$row["category"].' </span> </td>
-                                <td>'.$row["type"].'</td>
-                                <td>'.$row["state_name"].'</td>
-                                <td>'.$row["key_words"].' </span> </td>
-                                <td>'.$row["status"].' </span> </td>
-                                <td>'.$row["notes"].' </span> </td>
-                                <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
-                                <td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>
-                                <td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>
-                                <td><a class="btn btn-danger btn-sm" href="deleteDress.php?id='.$row["id"].'">Delete</a></td>
-                            </tr>';
+                    $ID = $row["id"];
+                    $name = $row["name"];
+                    $description = $row["description"];
+                    $did_you_know = $row["did_you_know"];
+                    $category = $row["category"];
+                    $type = $row["type"];
+                    $state_name = $row["state_name"];
+                    $key_words = $row["key_words"];
+                    $status = $row["status"];
+                    $notes = $row["notes"];
+                    $image = $row["image_url"];
+
+                    if(isset($_SESSION['role'])) {
+                        ?>
+                <tr>
+                    <td><?php echo $ID; ?></td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'name','<?php echo $ID; ?>')"><?php echo $name; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'description','<?php echo $ID; ?>')"><?php echo $description; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'did_you_know','<?php echo $ID; ?>')"><?php echo $did_you_know; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'category','<?php echo $ID; ?>')"><?php echo $category; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'type','<?php echo $ID; ?>')"><?php echo $type; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'state_name','<?php echo $ID; ?>')"><?php echo $state_name; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'key_words','<?php echo $ID; ?>')"><?php echo $key_words; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'status','<?php echo $ID; ?>')"><?php echo $status; ?></div></span> </td>
+                    <td><div contenteditable="true" onBlur="updateValue(this,'notes','<?php echo $ID; ?>')"><?php echo $notes; ?></div></span> </td>
+                    <?php echo '<td><img src="images/dress_images/'.$row["image_url"].'" style="width:100px;height:120px;">' ?>
+                    <?php echo '<td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>' ?>
+                    <?php echo '<td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>' ?>
+                    <?php echo '<td><a class="btn btn-danger btn-sm" href="deleteDress.php?id='.$row["id"].'">Delete</a></td>' ?>
+                </tr>
+                 <?php  
+                    } else{
+                      echo '<tr>
+                      <td>'.$row["id"].'</td>
+                      <td> </span> <a href="display_the_dress.php?id='.$row["id"].'">'.$row["name"].'</a></td>
+                      <td>'.$row["description"].'</td>
+                      <td>'.$row["did_you_know"].'</td>
+                      <td>'.$row["category"].' </span> </td>
+                      <td>'.$row["type"].'</td>
+                      <td>'.$row["state_name"].'</td>
+                      <td>'.$row["key_words"].' </span> </td>
+                      <td>'.$row["status"].' </span> </td>
+                      <td>'.$row["notes"].' </span> </td>
+                      <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
+                      <td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>
+                      <td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>
+                      <td><a class="btn btn-danger btn-sm" href="deleteDress.php?id='.$row["id"].'">Delete</a></td>
+                  </tr>';    
+
                     }//end while
                 }//end if
-                else {
-                    echo "0 results";
-                }//end else
+            }//end second if 
+  
                 ?>
+
                 </tbody>
             </div>
         </table>
@@ -172,7 +205,13 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 
 <!--Data Table-->
 <script type="text/javascript" charset="utf8"
+        src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+<script type="text/javascript" charset="utf8"
         src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
 <script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" charset="utf8"
@@ -247,6 +286,28 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 } );
 
 
+function updateValue(element,column,id){
+        var value = element.innerText
+        $.ajax({
+            url:'editable_list.php',
+            type: 'post',
+            data:{
+                value: value,
+                column: column,
+                id: id
+            },
+            success:function(php_result){
+				console.log(php_result);
+				
+            }
+            
+        })
+    }
+
+
+
+
 </script>
+
 </body>
 </html>
