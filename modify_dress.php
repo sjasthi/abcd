@@ -6,7 +6,7 @@
     require 'db_configuration.php';
     include('header.php'); 
     $page="list_dresses.php";
-    //verifyLogin($page);
+    verifyLogin($page);
  
 ?>
 <html>
