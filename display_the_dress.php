@@ -37,6 +37,19 @@
 include('header.php');
 include_once 'db_configuration.php';
 
+if (isset($_GET['fav_status'])) {
+
+  $fav_status = mysqli_real_escape_string($db, $_GET['fav_status']);
+  if ($fav_status == "COOKIE_NOT_FOUND")
+  {
+    echo "Cookie Not Found. Using the system's default";
+  }
+  if ($fav_status == "DRESS_NOT_FOUND")
+  {
+    echo "Dress Not Found. Using the system's default";
+  }
+}
+
 if (isset($_GET['id'])) {
 
     $id = mysqli_real_escape_string($db, $_GET['id']);
