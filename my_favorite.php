@@ -9,16 +9,29 @@ ob_start();
 $page_title = ' Project ABCD > My favorite';
 include('header.php'); 
 $cookie_name = "favorite_dress";
+
 ?>
 <html>
 <body>
 <h2 id="title">Favorite Dress</h2><br>
 <?php
+ $favoriteDressName = "Saree";
 if(!isset($_COOKIE[$cookie_name])) {
      echo "Your favorite dress is not set, go to preferences and enter your favorite dress.";
-} else {
-     $favoriteDressName = $_COOKIE[$cookie_name];
-    header('location: display_the_dress.php?name='.$favoriteDressName);
+     echo "Default is Saree.";
+} 
+else{
+    $result = $db->query("SELECT * FROM dresses WHERE name =" .$_COOKIE[$cookie_name]);
+
+    echo $result;
+    if ( $result->num_rows == 0 ) {
+        echo "That dress doesn't exist. Please input another dress.";
+    }
+    else {
+        $favoriteDressName = $_COOKIE[$cookie_name];
+        header('location: display_the_dress.php?name='.$favoriteDressName);
+    }
+    
 }
 ?>
 </body>
