@@ -1,4 +1,4 @@
-<?php
+<<?php
 $status = session_status();
 if($status == PHP_SESSION_NONE){
     //There is no active session
@@ -8,6 +8,8 @@ if($status == PHP_SESSION_NONE){
 ob_start();
 $page_title = ' Project ABCD > My favorite';
 include('header.php'); 
+require 'bin/functions.php';
+require 'db_configuration.php';
 $cookie_name = "favorite_dress";
 
 ?>
@@ -15,24 +17,32 @@ $cookie_name = "favorite_dress";
 <body>
 <h2 id="title">Favorite Dress</h2><br>
 <?php
- $favoriteDressName = "Saree";
+
 if(!isset($_COOKIE[$cookie_name])) {
-     echo "Your favorite dress is not set, go to preferences and enter your favorite dress.";
-     echo "Default is Saree.";
+     echo "Your favorite dress is not set. You can set your favorite dress in preferences.";
+     echo "Using the system default.";
+     $fav_status = "COOKIE_NOT_FOUND";
+     $favoriteDressName = "Saree";
 } 
 else{
-    $result = $db->query("SELECT * FROM dresses WHERE name =" .$_COOKIE[$cookie_name]);
-
-    echo $result;
-    if ( $result->num_rows == 0 ) {
-        echo "That dress doesn't exist. Please input another dress.";
-    }
-    else {
-        $favoriteDressName = $_COOKIE[$cookie_name];
-        header('location: display_the_dress.php?name='.$favoriteDressName);
-    }
-    
+    $favoriteDressName = $_COOKIE[$cookie_name];
+    $fav_status = "COOKIE_N_DRESS_ARE_FOUND";
+    $sql_query = "SELECT `name` FROM dresses WHERE `name` = '$favoriteDressName'";
+    $mysqli_result = $db->query($sql_query);
+ 
+    // If the dress doesn't exist, we will get EMPTY result_set
+    $num_rows = mysqli_num_rows($mysqli_result);
+    if ( $num_rows == 0) {
+        echo "Your favorite dress doesn't exist in the database";
+        echo "Using the system default.";
+        $fav_status = "DRESS_NOT_FOUND";
+        $favoriteDressName = "Saree";
+    } 
 }
+
+// By the time we come here, we will have either system default or correct preferrence from cookie
+header('location: display_the_dress.php?name='.$favoriteDressName.'&fav_status='.$fav_status);
+
 ?>
 </body>
 </html>
