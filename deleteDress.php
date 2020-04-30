@@ -1,11 +1,14 @@
-
-<?php $page_title = 'Project ABCD > Delete Dress'; ?>
 <?php 
 //edited by Ria
+$status = session_status();
+if ($status == PHP_SESSION_NONE) {
+    session_start();
+}
     require 'bin/functions.php';
     require 'db_configuration.php';
     include('header.php'); 
-    $page="list_dresses.php";
+    $page_title = 'Project ABCD > Delete Dress';
+    $page="deleteDress.php";
     verifyLogin($page);
 
 ?>
