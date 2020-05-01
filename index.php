@@ -15,8 +15,8 @@ include('header.php');
 </head>
 <style>
     .image {
-        width: 100px;
-        height: 100px;
+        width: 125px;
+        height: 175px;
         padding: 8px 8px 8px 8px;
         transition: transform .2s;
     }
