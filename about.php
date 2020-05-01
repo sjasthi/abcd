@@ -92,7 +92,7 @@ var s1 = new Student(
 
       var s3 = new Student(
       "",
-      "Anuradha",
+      "Anu Kumble",
       "images/about_images/sample_image.png",
       "Sample Text"
       );
@@ -108,14 +108,14 @@ var s1 = new Student(
       "",
       "Siva Jasthi",
       "images/about_images/siva.jpg",
-      "Dr. Jasthi is the primary instrutor for CS2 (JavaScript) class. He has been working in the software industry in different capacities for the last 25 years. He is currently working as a Consultant in Siemens PLM Software Inc. For the last 18 years, he is serving as adjunct faculty in the Department of Computer Sciences and Cyber Security at Metropolitan State University (MN, USA). For the last 12 years, he has been an active volunteer at School of India for Languages and Culture (SILC) and offered his services as a Telugu Teacher, Webmaster, Principal, and President. He is currently serving on the SILC board of directors as Director of Technology. He is building a five-level Digital Literacy program for middle and high school students at SILC."
+      "Dr. Jasthi is the primary instrutor for CS3 (PHP/MySQL) class. He has been working in the software industry in different capacities for the last 25 years. He is currently working as a Consultant in Siemens PLM Software Inc. For the last 20 years, he is serving as adjunct faculty in the Department of Computer Sciences and Cyber Security at Metropolitan State University (MN, USA). For the last 14 years, he has been an active volunteer at School of India for Languages and Culture (SILC) and offered his services as a Telugu Teacher, Webmaster, Principal, and President. He is currently serving on the SILC board of directors as Director of Technology. He is building a five-level Digital Literacy program for middle and high school students at SILC."
       );
 
       var s6 = new Student(
       "",
       "Deepta Jasthi",
-      "images/about_images/sample_image.png",
-      "Deepta Jasthi is currently a senior at Mounds View High School. At school, she is involved in activities such as Science Olympiad, National Honor Society, cross country running, and DECA. She is participating in Science Olympiad and DECA nationals this spring. She attends the School of India for Languages and Culture (SILC) for computer science classes because she wants to explore her interests. Deepta is also interested in the arts. She has been learning Bharatanatyam for the past ten years and has performed at several community events in the twin cities, MN. Her passion for music has led her to learn piano for the past ten years, where she has won state competitions. She also participates in Figure Skating at the White Bear Lake Sports Center.  She volunteers as a mentor at the 4-H Tech Wizards program that engages youth in small group mentoring around technology and STEM concepts. Outside of her academic and artistic pursuits, Deepta enjoys being a part of the Girl Scouts Program, traveling and spending time with family and friends."
+      "images/about_images/deepta.jpg",
+      "Deepta Jasthi is currently a senior at Mounds View High School. At school, she is involved in activities such as Science Olympiad, National Honor Society, cross country running, and DECA. She is participating in Science Olympiad and DECA nationals this spring. She attends the School of India for Languages and Culture (SILC) for computer science classes because she wants to explore her interests. Deepta is also interested in the arts. She has been learning Bharatanatyam for the past ten years and has performed at several community events in the twin cities, MN. Her passion for music has led her to learn piano for the past ten years, where she has won state competitions. She also participates in Figure Skating at the White Bear Lake Sports Center.  She volunteers as a mentor at the 4-H Tech Wizards program that engages youth in small group mentoring around technology and STEM concepts. Outside of her academic and artistic pursuits, Deepta enjoys being a part of the Girl Scouts Program, traveling and spending time with family and friends. She will be going to University of California, Berkeley in Spring 2020"
       );
 
       var s7 = new Student(
@@ -142,7 +142,7 @@ var s1 = new Student(
       var s11 = new Student(
       "",
       "Pravallika Sunkara",
-      "images/about_images/sample_image.png",
+      "images/about_images/pravallika.jpg",
       "Pravallika Sunkara is currently in 9th grade and goes to Eastridge High, in Woodbury MN. She is a classical and bollywood dancer. And her hobbies are art, music, and dance. Pravallika knows how to play 5 instruments, they are piano, violin, flute, ukulele, and the recorder. She has won 1st place painting 4 years in a row for the ugadi TEAM competitions. She attends the School of India Languages and Culture (SILC) to learn telugu, javascript, and dance. She has been attending SILC for the past 4 years."
       );
 
@@ -170,21 +170,14 @@ var s1 = new Student(
       var s14 = new Student(
       "",
       "Vishnu Vundamati",
-      "images/about_images/sample_image.png",
+      "images/about_images/vishnu.jpg",
       "Vishnu Vundamati is a freshman at a school in Woodbury, MN. He loves to learn about world history and be in the natural outdoors. Vishnu has been learning Carnatic Music for the past six years. He has performed twice for Indian Raga Labs, and will be performing in Cleveland, OH for the Thyagaraja Music Festival this April. Vishnu attends SILC(School of Indian Language and Culture) every Saturday and learns Hindi, Computer Science, and Tabla. Vishnu also likes to learn the piano and has been doing so for the past seven years. Vishnu has played in the Minnesota State Honors Concert five times, and hopes to one day win the Minnesota Young Artist competition. He hopes to continue playing the piano for the rest of his life. Other than piano Vishnu learns Taekwondo and achieved a black belt in 2017."
-      );
-
-      var s15 = new Student(
-      "",
-      "Anu Kumble",
-      "images/about_images/sample_image.png",
-      "Sample Text"
       );
 
       var s16 = new Student(
       "",
       "Ria Koppikar",
-      "Images/about_images/sample_image.png",
+      "images/about_images/ria.jpg",
       "Ria Koppikar is currently a sophomore at Eastview High School. At school, she is involved in many activities, including; Speech, Debate, DECA, and National Honors Society. This was her first year in DECA, and she participated in the State competition. Ria has been attending SILC since the age of 7, and she has learned and grown as a student and person. She thoroughly enjoys teaching, and this year she was an assistant Hindi teacher at SILC. Ria also has a passion for dance and does it through SILC as well. In her spare time, she enjoys spending time with family and friends, doing calligraphy, and traveling"
       );
 
@@ -197,7 +190,6 @@ var s1 = new Student(
                s4.toString() + 
                s5.toString() +
                s6.toString() +
-               s7.toString() +
                s8.toString() +
                s9.toString() +
                s10.toString() +
@@ -205,7 +197,6 @@ var s1 = new Student(
                s12.toString() +
                s13.toString() +
                s14.toString() +
-               s15.toString() +
                s16.toString() ;
                
     }
