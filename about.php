@@ -58,7 +58,7 @@ $page_title = 'Project ABCD > About';
     <!--this is the tool bar-->
 
     <h2 id="title">About Us</h2>
-    <h4 class="directions">Project ABCD was created in the 2019-2020 school year by the current SILC CS320 (PHP) class students. Each of us have contibuted to the creation of the wedsite by completing one functionality individually. We have then pushed our updates to Github where there is a ongoing Project ABCD application. We used GitHub to download the master baseline and to ingegrate our changes. This year we also created our own webadress using Blue Host. Enjoy! <br> </h4>
+    <h4 class="directions">Project ABCD was created in the 2019-2020 school year by the current SILC CS320 (PHP) class students. Each of us have contibuted to the creation of the website by completing one functionality individually. We have then pushed our updates to Github where there is a ongoing Project ABCD application. We used GitHub to download the master baseline and to integrate our changes. This year we also created our own webaddress using Blue Host. Enjoy! <br> </h4>
 </body>
 
 <script>
@@ -156,8 +156,8 @@ var s1 = new Student(
       var s12 = new Student(
       "",
       "Raja Gollamundi",
-      "images/about_images/sample_image.png",
-      "Sample Text"
+      "images/about_images/RajaGollamundi.jpg",
+      "Raja Gollamudi helped in integrating and testing the PHP project for SILC 2020 class. He has been working in the software industry for over 25 years. He is currently working as a Principal Consultant at Magenic Technologies. He has been a volunteer at School of India for Languages and Culture (SILC) and offered his services as a Telugu Teacher"
       );
 
       var s13 = new Student(
@@ -184,7 +184,7 @@ var s1 = new Student(
       var s16 = new Student(
       "",
       "Ria Koppikar",
-      "Images/about_images/sample_image.png",
+      "Images/about_images/ria.jpg",
       "Ria Koppikar is currently a sophomore at Eastview High School. At school, she is involved in many activities, including; Speech, Debate, DECA, and National Honors Society. This was her first year in DECA, and she participated in the State competition. Ria has been attending SILC since the age of 7, and she has learned and grown as a student and person. She thoroughly enjoys teaching, and this year she was an assistant Hindi teacher at SILC. Ria also has a passion for dance and does it through SILC as well. In her spare time, she enjoys spending time with family and friends, doing calligraphy, and traveling"
       );
 
