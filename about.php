@@ -158,7 +158,7 @@ var s1 = new Student(
       var s12 = new Student(
       "",
       "Raja Gollamundi",
-      "images/about_images/RajaGollamundi.jpg",
+      "images/about_images/raj.jpg",
       "Raja Gollamudi helped in integrating and testing the PHP project for SILC 2020 class. He has been working in the software industry for over 25 years. He is currently working as a Principal Consultant at Magenic Technologies. He has been a volunteer at School of India for Languages and Culture (SILC) and offered his services as a Telugu Teacher"
       );
 

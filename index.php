@@ -15,8 +15,10 @@ include('header.php');
 </head>
 <style>
     .image {
-        width: 125px;
-        height: 175px;
+        /* width: 125px;
+        height: 175px; */
+        width: 250px;
+        height: 350px;
         padding: 8px 8px 8px 8px;
         transition: transform .2s;
     }
