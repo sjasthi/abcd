@@ -59,6 +59,8 @@ $page_title = 'Project ABCD > About';
 
     <h2 id="title">About CS320 2 SILC</h2>
 
+    <img src="images/about_images/art_strip.jpg">
+
     <h4 class="directions">Project ABCD was created in the 2019-2020 school year by the current SILC CS320 (PHP) class students. Each of us have contibuted to the creation of the website by completing one functionality individually. We have then pushed our updates to Github repository. We used clone, pull, push, sync functions of GitHub to download the master baseline and to integrate our changes. The project is also hosted on Blue Host at our own webaddress.  Enjoy! <br> </h4>
 
 </body>
