@@ -137,14 +137,14 @@ var s1 = new Student(
     var s10 = new Student(
       "",
       "Maheswara Sunkara",
-      "images/about_images/sample_image.png",
-      "Sample Text"
+      "images/about_images/mahesh.jpg",
+      "Mahesh is helping SILC CS3 this year. He has been with SILC for last 6 years as a volunteer and teacher in Telugu and Computer Science classes.He has been working in the software industry for 19 years. Currently, he is working as a software developer in BestBuy Richfield office. "
       );
 
       var s11 = new Student(
       "",
       "Pravallika Sunkara",
-      "images/about_images/pravallika.jpg",
+      "images/about_images/pravallika.png",
       "Pravallika Sunkara is currently in 9th grade and goes to Eastridge High, in Woodbury MN. She is a classical and bollywood dancer. And her hobbies are art, music, and dance. Pravallika knows how to play 5 instruments, they are piano, violin, flute, ukulele, and the recorder. She has won 1st place painting 4 years in a row for the ugadi TEAM competitions. She attends the School of India Languages and Culture (SILC) to learn telugu, javascript, and dance. She has been attending SILC for the past 4 years."
       );
 
