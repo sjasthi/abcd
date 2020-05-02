@@ -58,7 +58,9 @@ $page_title = 'Project ABCD > About';
     <!--this is the tool bar-->
 
     <h2 id="title">About Us</h2>
-    <h4 class="directions">Project ABCD was created in the 2019-2020 school year by the current SILC CS320 (PHP) class students. Each of us have contibuted to the creation of the wedsite by completing one functionality individually. We have then pushed our updates to Github where there is a ongoing Project ABCD application. We used GitHub to download the master baseline and to ingegrate our changes. This year we also created our own webadress using Blue Host. Enjoy! <br> </h4>
+
+    <h4 class="directions">Project ABCD was created in the 2019-2020 school year by the current SILC CS320 (PHP) class students. Each of us have contibuted to the creation of the website by completing one functionality individually. We have then pushed our updates to Github where there is a ongoing Project ABCD application. We used GitHub to download the master baseline and to integrate our changes. This year we also created our own webaddress using Blue Host. Enjoy! <br> </h4>
+
 </body>
 
 <script>
@@ -93,8 +95,8 @@ var s1 = new Student(
       var s3 = new Student(
       "",
       "Anu Kumble",
-      "images/about_images/sample_image.png",
-      "Sample Text"
+      "images/about_images/AnuradhaKumble.jpg",
+      "Anu and her family have been part of SILC for nine years . Her primary goal in joining SILC was to have daughter, Ria, be comfortable in reading and writing Hindi along with conversing in the language especially in India. Along with her professional role of a Business Analyst, she has taken up the role of a Co-Editor of the Yearbook in 2018-19 and played a lead role in implementing the SILC Library with over 400 books in 2017. Anu joined the PHP class as she enjoys learning different aspects of the IT industry and took it up as a challenge and found that she enjoys the class very much. She also enjoys reading books, blogs, solving riddles & crosswords, observing nature and watching movies. "
       );
 
       var s5 = new Student(
@@ -156,8 +158,8 @@ var s1 = new Student(
       var s12 = new Student(
       "",
       "Raja Gollamundi",
-      "images/about_images/sample_image.png",
-      "Sample Text"
+      "images/about_images/RajaGollamundi.jpg",
+      "Raja Gollamudi helped in integrating and testing the PHP project for SILC 2020 class. He has been working in the software industry for over 25 years. He is currently working as a Principal Consultant at Magenic Technologies. He has been a volunteer at School of India for Languages and Culture (SILC) and offered his services as a Telugu Teacher"
       );
 
       var s13 = new Student(
