@@ -90,13 +90,6 @@ var s1 = new Student(
       "Anjneya is currently an 8th grader at Chippewa Middle School. He attends Hindi 4, CS320 (PHP), and teaches the beginner's class for Tabla at SILC. He enjoys playing games, swimming, trying new foods, sleeping, and spending time with friends and family."
       );
 
-      var s3 = new Student(
-      "",
-      "Anuradha",
-      "images/about_images/sample_image.png",
-      "Sample Text"
-      );
-
       var s5 = new Student(
       "",
       "Ishana Didwania",
@@ -177,8 +170,8 @@ var s1 = new Student(
       var s15 = new Student(
       "",
       "Anu Kumble",
-      "images/about_images/sample_image.png",
-      "Sample Text"
+      "images/about_images/anu.jpg",
+      "Anu and her family have been part of SILC for nine years . Her primary goal in joining SILC was to have daughter, Ria, be comfortable in reading and writing Hindi along with conversing in the language especially in India. Along with her professional role of a Business Analyst, she has taken up the role of a Co-Editor of the Yearbook in 2018-19 and played a lead role in implementing the SILC Library with over 400 books in 2017. Anu joined the PHP class as she enjoys learning different aspects of the IT industry and took it up as a challenge and found that she enjoys the class very much. She also enjoys reading books, blogs, solving riddles & crosswords, observing nature and watching movies. "
       );
 
       var s16 = new Student(
@@ -193,7 +186,6 @@ var s1 = new Student(
     
     function printoutStudents() {
         return s1.toString() + 
-               s3.toString() +
                s4.toString() + 
                s5.toString() +
                s6.toString() +
