@@ -1,4 +1,6 @@
 <?php
+ob_start();
+
 /* Main page with two forms: sign up and log in */
 $page_title = 'Project ABCD > Login';
 require 'db_configuration.php';
@@ -13,12 +15,12 @@ include('header.php');
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
+
 {
     if (isset($_POST['login'])) { //user logging in
 
         require 'login.php';
-
-    }
+}
 
     elseif (isset($_POST['register'])) { //user registering
 
@@ -31,7 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   <div class="form">
 
       <ul class="tab-group">
-        <li class="tab active"><a href="#login">Log In</a></li>
+        <li class= "tab active align = right"><a href="#register">New User</a></li>
+        
       </ul>
 
       <div class="tab-content">
@@ -43,7 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
             <div class="field-wrap">
             <label>
-              Email Address<span class="req">*</span>
+              Email Address
+              <span class="req">*</span>
             </label>
             <input type="email" required autocomplete="off" name="email"/>
           </div>
@@ -61,26 +65,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         </div>
 
-        <div id="signup">
-          <h1>Sign Up for Free</h1>
+        <div id="register">
+          <h1>Register as a new user</h1>
 
           <form action="loginForm.php" method="post" autocomplete="off">
 
           <div class="top-row">
             <div class="field-wrap">
               <label>
-                First Name<span class="req">*</span>
+                First Name <span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" name='firstname' />
+              <input type="text" required autocomplete="off" name='first_name' />
             </div>
 
             <div class="field-wrap">
               <label>
                 Last Name<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off" name='lastname' />
+              <input type="text"required autocomplete="off" name='last_name' />
             </div>
-          </div>
+          // </div>
 
           <div class="field-wrap">
             <label>
@@ -96,8 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <input type="password"required autocomplete="off" name='password'/>
           </div>
 
-          <button type="submit" class="button button-block" name="register" />Register</button>
-
+          <button class="button button-block" name="register" />Register</button> 
+          
           </form>
 
         </div>
