@@ -1,12 +1,14 @@
-
-<?php $page_title = 'Modify Dress'; ?>
-<?php $page_title = 'Project ABCD > Modify Dresses'; ?>
 <?php 
+    $status = session_status();
+    if ($status == PHP_SESSION_NONE) {
+        session_start();
+    }
     require 'bin/functions.php';
     require 'db_configuration.php';
     include('header.php'); 
-    $page="list_dresses.php";
-    //verifyLogin($page);
+    $page_title = 'Project ABCD > Modify Dresses';
+    $page="modify_dress.php";
+    verifyLogin($page);
  
 ?>
 <html>

@@ -1,4 +1,8 @@
 <?php 
+$status = session_status();
+if($status == PHP_SESSION_NONE){
+    session_start();
+}
 require 'bin/functions.php';
 require 'db_configuration.php';
 $page_title = ' Project ABCD > Preferences';
@@ -6,31 +10,30 @@ include('header.php');
     $page="preferences.php";
     //verifyLogin($page);
 
-$sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_PER_ROW'";
-$sql2 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_TO_DISPLAY'";
+// Hard code these defaults for now; Ideally, we can get these from the database.
+$row_count = 5;
+$dresses_count = 200;
+$fav_dress = "Saree";
 
-$results = mysqli_query($db,$sql1);
-$results2 = mysqli_query($db,$sql2);
+// cookie name
+$row_count_cookie_name = "row_count";
+$dresses_count_cookie_name = "dresses_count";
+$favorite_dress_cookie_name = "favorite_dress";
 
-if(mysqli_num_rows($results)>0){
-    while($row = mysqli_fetch_assoc($results)){
-        $row_count_array[] = $row;
-    }
+// if cookie is present, then use those values
+// if cookie is NOT present, then the defaults we set earlier will come into play
+if(isset($_COOKIE[$favorite_dress_cookie_name])){
+    $fav_dress = $_COOKIE[$favorite_dress_cookie_name];
 }
-$row_count = $row_count_array[0]['value'];
 
-if(mysqli_num_rows($results2)>0){
-    while($row = mysqli_fetch_assoc($results2)){
-        $dresses_count_array[] = $row;
-    }
+if(isset($_COOKIE[$row_count_cookie_name])){
+    $row_count = $_COOKIE[$row_count_cookie_name];
 }
-$dresses_count = $dresses_count_array[0]['value'];
-// Getting fav dress from cookie
-$cookie_name = "favorite_dress";
-$fav_dress = "";
-if(isset($_COOKIE[$cookie_name])){
-    $fav_dress = $_COOKIE[$cookie_name];
+
+if(isset($_COOKIE[$dresses_count_cookie_name])){
+    $dresses_count = $_COOKIE[$dresses_count_cookie_name];
 }
+
 
 // we will rely only on cookie; ditch the db values for updates
 $form_action = "set_cookie.php";
@@ -71,8 +74,8 @@ $form_action = "set_cookie.php";
         </tr>
         <tr>
             <td style="width:300px">Number of Dresses to Display:</td>
-            <td><input disabled type="int" maxlength="2" size="13" value="<?php echo $dresses_count; ?>" title="Current value"></td> 
-            <td><input required type="int" name="dresses_count" maxlength="2" size="13" value="<?php echo $dresses_count; ?>" title="Enter in another number!"></td>
+            <td><input disabled type="int" maxlength="3" size="13" value="<?php echo $dresses_count; ?>" title="Current value"></td> 
+            <td><input required type="int" name="dresses_count" maxlength="3" size="13" value="<?php echo $dresses_count; ?>" title="Enter in another number!"></td>
         </tr>
         <tr>
             <td style="width:300px">Name of Favorite Dress:</td>

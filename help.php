@@ -1,6 +1,13 @@
+<?php
+$status = session_status();
+if($status == PHP_SESSION_NONE){
+    //There is no active session
+    session_start();
+}
 
-<?php $page_title = ' Project ABCD > Help'; ?>
-<?php include('header.php'); ?>
+include('header.php');
+$page_title = 'Project ABCD > Help'; 
+?>
 
 <html>
     <head>
