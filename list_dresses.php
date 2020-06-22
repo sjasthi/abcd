@@ -7,14 +7,7 @@ require 'db_configuration.php';
 $query = "SELECT * FROM dresses";
 
 $GLOBALS['data'] = mysqli_query($db, $query);
-// $GLOBALS['topic'] = mysqli_query($db, $query);
-// $GLOBALS['Dress'] = mysqli_query($db, $query);
-// $GLOBALS['choice_1'] = mysqli_query($db, $query);
-// $GLOBALS['choice_2'] = mysqli_query($db, $query);
-// $GLOBALS['choice_3'] = mysqli_query($db, $query);
-// $GLOBALS['choice_4'] = mysqli_query($db, $query);
-// $GLOBALS['answer'] = mysqli_query($db, $query);
-// $GLOBALS['image_name'] = mysqli_query($db, $query);
+
 ?>
 
 

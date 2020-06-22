@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2020 at 02:16 PM
+-- Generation Time: Jun 22, 2020 at 06:22 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -47,11 +47,11 @@ CREATE TABLE `dresses` (
 --
 
 INSERT INTO `dresses` (`id`, `name`, `description`, `did_you_know`, `category`, `type`, `state_name`, `key_words`, `image_url`, `status`, `notes`) VALUES
-(1, 'Slide1 name', 'Slide1 description', 'did_you_know', 'category', 'type', 'state_name', 'key_words', 'Slide1.PNG', 'art_work_done', 'notes'),
-(2, 'Slide2', 'Slide2', '', '', '', '', '', 'Slide2.PNG', 'art_work_done', ''),
+(1, 'Saree2', 'Slide1 description', 'did_you_know', 'category', 'hello', 'dd', 'hello', 'Slide1.PNG', 'testing', 'notes'),
+(2, 'Saree', 'Slide2', 'sdfs', 'sf', 'sdf', '', '', 'Slide2.PNG', 'art_work_done', ''),
 (3, 'Slide3', 'Slide3', '', '', '', '', '', 'Slide3.PNG', 'art_work_done', ''),
 (4, 'Slide4', 'Slide4', '', '', '', '', '', 'Slide4.PNG', 'art_work_done', ''),
-(5, 'Slide5', 'Slide5', '', '', '', '', '', 'Slide5.PNG', 'art_work_done', ''),
+(5, 'Testing', 'Slide5', 'yes', '', 'boys', '', '', 'Slide5.PNG', 'art_work_done', ''),
 (6, 'Slide6', 'Slide6', '', '', '', '', '', 'Slide6.PNG', 'art_work_done', ''),
 (7, 'Slide7', 'Slide7', '', '', '', '', '', 'Slide7.PNG', 'art_work_done', ''),
 (8, 'Slide8', 'Slide8', '', '', '', '', '', 'Slide8.PNG', 'art_work_done', ''),
@@ -296,7 +296,9 @@ INSERT INTO `dresses` (`id`, `name`, `description`, `did_you_know`, `category`, 
 (247, 'Tamilnadu', 'Tamilnadu', 'Tamilnadu', 'regiona', 'women', '', '', 'tamilnadu.jpg', 'art_work_done', ''),
 (248, 'Tribal Dress', 'Tribal Dress', 'Tribal Dress', 'regiona', 'women', '', '', 'tribal_dress.jpg', 'art_work_done', ''),
 (249, 'Tripura', 'Tripura', 'Tripura', 'regiona', 'women', '', '', 'tripura.jpg', 'art_work_done', ''),
-(250, 'West Bengal', 'West Bengal', 'West Bengal', 'regiona', 'women', '', '', 'west_bengal.jpg', 'art_work_done', '');
+(250, 'West Bengal', 'West Bengal', 'West Bengal', 'regiona', 'women', '', '', 'west_bengal.jpg', 'art_work_done', ''),
+(255, 'one', 'two', 'three', 'hello', 'boys', 'mn', 'key, words', 'gardening.png', 'proposed', 'notes'),
+(256, 'qwr', 'qwer', 'qwer', 'qwer', 'qwer', 'qwer', 'qwer', 'groom.png', 'proposed', 'qwer');
 
 -- --------------------------------------------------------
 
@@ -343,8 +345,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `hash`, `active`, `role`, `modified_time`, `created_time`) VALUES
-(1, 'Siva', 'Jasthi', 'siva@silcmn.com', '$2y$10$zFAG5GBNtf.5BpowMqZSputSLeG8OzfKACpjAMsePjZhu.TnvU/Bu', 'yes', 'admin', '0000-00-00', '0000-00-00'),
-(2, 'Mahesh', 'Sunkara', 'mahesh@silcmn.com', '$2y$10$zFAG5GBNtf.5BpowMqZSputSLeG8OzfKACpjAMsePjZhu.TnvU/Bu', 'yes', 'admin', '0000-00-00', '0000-00-00'),
 (3, 'SILC', 'Tester', 'test@silcmn.com', '$2y$10$zFAG5GBNtf.5BpowMqZSputSLeG8OzfKACpjAMsePjZhu.TnvU/Bu', 'yes', 'admin', '0000-00-00', '0000-00-00'),
 (4, 'SILC', 'CS320', 'cs320@silcmn.com', '$2y$10$zFAG5GBNtf.5BpowMqZSputSLeG8OzfKACpjAMsePjZhu.TnvU/Bu', 'yes', 'admin', '0000-00-00', '0000-00-00');
 
@@ -378,7 +378,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `dresses`
 --
 ALTER TABLE `dresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
