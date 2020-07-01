@@ -3,7 +3,7 @@
 
 // this is the configuration when we are trying it on localhost
  DEFINE('DATABASE_HOST', 'localhost');
- DEFINE('DATABASE_DATABASE', 'abcd_db');
+ DEFINE('DATABASE_DATABASE', 'abcd');
  DEFINE('DATABASE_USER', 'root');
  DEFINE('DATABASE_PASSWORD', '');
 
