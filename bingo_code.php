@@ -1,7 +1,8 @@
 <html>
 <body>
 
-<?php echo $_POST["title"]; ?><br>
+<?php include('header.php'); ?> 
+
 <?php
 
 function Bingo() {
@@ -9,12 +10,16 @@ function Bingo() {
     $words = array();
 
     if (!isset($_POST['submit'])){
-    
+
+      $number = $_POST['number'];
+      $cards = $_POST['cards'];
+      $total = $number * $number;
       $added = explode(',',$_POST['list']);
       $words = array_merge($words, $added);
-      //shuffle($words);
 
     if(array_key_exists('generate_bingo_cards', $_POST)) {
+
+      for($i = 0; $i < $cards; $i++) {
       shuffle($words);
 
       $bingocard = "<table id='bingo'>";
@@ -23,12 +28,11 @@ function Bingo() {
       $bingocard .= "<tbody>";
       $bingocard .= "<tr>";
   
-      for($cell=0; $cell<9; $cell++)
+      for($cell=0; $cell<$total; $cell++)
       {
-        $rowend = ($cell + 1) % 3;
-        $bingocard .= "<td>" 
-         . $words[$cell] . "</td>";
-        if($rowend == 0 && $cell < 8) {
+        $rowend = ($cell + 1) % $number;
+        $bingocard .= "<td>"  . $words[$cell] . "</td>";
+        if($rowend == 0) {
           $bingocard .= "</tr><tr>";
         }
       }
@@ -37,16 +41,31 @@ function Bingo() {
       $bingocard .= "</tbody>";
       $bingocard .= "</table>";
   
-      echo $bingocard;
+      echo $bingocard . "<br>";
+    }
     } 
     
     else if(array_key_exists('generate_bingo_list', $_POST)) {
-      echo "<p>Here is the list:</p>\n<ul>\n";
+
+ 
+      if(isset($_POST['randomize']) )
+   {
+       shuffle($words);
+       echo "<h1>Here is the list:</h1>\n<ul>\n";
       foreach($words as $t){
       echo "<li>".trim($t)."</li>\n";  
-        } echo"</ul>"; 
-    }
+      } echo"</ul>"; 
+   }
+   else
+   {
+    echo "<h1>Here is the list:</h1>\n<ul>\n";
+    foreach($words as $t){
+    echo "<li>".trim($t)."</li>\n";  
+    } echo"</ul>"; 
+   }
 
+    }
+ 
 
 
     }
@@ -54,7 +73,6 @@ function Bingo() {
 
 
 ?>
-
 <?php Bingo(); ?>
 </body>
 </html>
