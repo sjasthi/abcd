@@ -1,4 +1,9 @@
 <?php
+$status = session_status();
+if($status == PHP_SESSION_NONE){
+    session_start();
+}
+ob_start();
 /* User login process, checks if user exists and password is correct */
 
 // Escape email to protect against SQL injections
@@ -14,15 +19,11 @@ else { // User exists
     $user = $result->fetch_assoc();
 
     if ( password_verify($_POST['password'], $user['hash']) ) {
-
         $_SESSION['email'] = $user['email'];
         $_SESSION['first_name'] = $user['first_name'];
         $_SESSION['last_name'] = $user['last_name'];
         $_SESSION['active'] = $user['active'];
         $_SESSION['role'] = $user['role'];
-
-
-        // This is how we'll know the user is logged in
         $_SESSION['logged_in'] = true;
 
         header("location: index.php");

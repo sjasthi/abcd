@@ -1,7 +1,14 @@
 <?php
+$status = session_status();
+if($status == PHP_SESSION_NONE){
+    //There is no active session
+    session_start();
+}
+if(!isset($page_title)) { $page_title = 'Project ABCD'; }
 
-    if(!isset($page_title)) { $page_title = 'Project ABCD'; }
-    //session_start();
+// echo '<pre>';
+// var_dump($_SESSION);
+// echo '</pre>';
 
 ?>
 <!DOCTYPE html>
