@@ -7,11 +7,6 @@
     //verifyLogin($page);
 
 ?>
-<?php 
-    $mysqli = NEW MySQLi('localhost','root','','abcd_db');
-    //$resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic ASC");   
-?>
-
 <div class="container">
 <style>
 
@@ -27,29 +22,6 @@
 
 </style>
     <!--Check the CeremonyCreated and if Failed, display the error message-->
-    <?php
-    // if(isset($_GET['createQuestion'])){
-    //     if($_GET["createQuestion"] == "fileRealFailed"){
-    //         echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image is not real, Please Try Again!</h3>';
-    //     }
-    // }
-    // if(isset($_GET['createQuestion'])){
-    //     if($_GET["createQuestion"] == "answerFailed"){
-    //         echo '<br><h3 align="center" class="bg-danger">FAILURE - Your answer was not one of the choices, Please Try Again!</h3>';
-    //     }
-    // }
-    // if(isset($_GET['createQuestion'])){
-    //     if($_GET["createQuestion"] == "fileTypeFailed"){
-    //         echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image is not a valid image type (jpg,jpeg,png,gif), Please Try Again!</h3>';
-    //     }
-    // }
-    // if(isset($_GET['createQuestion'])){
-    //     if($_GET["createQuestion"] == "fileExistFailed"){
-    //         echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image does not exist, Please Try Again!</h3>';
-    //     }
-    // }
-  
-    ?>
     <form action="create_the_resource.php" method="POST" enctype="multipart/form-data">
         <br>
         <h3 id="title">Create A Resource</h3> <br>

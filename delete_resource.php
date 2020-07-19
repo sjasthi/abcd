@@ -1,7 +1,6 @@
 
 <?php $page_title = 'Project ABCD > Delete Resource'; ?>
 <?php 
-//edited by Ria
     require 'bin/functions.php';
     require 'db_configuration.php';
     include('header.php'); 

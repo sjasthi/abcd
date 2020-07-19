@@ -75,21 +75,7 @@ if ($result->num_rows > 0) {
             echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image does not exist, Please Try Again!</h3>';
         }
       }
-      // Obtain status value from DB and set as selected for drop down
-      //$status_array=['proposed', 'approved', 'writeup_done' , 'art_work_done' , 'designed', 'completed'];
-      //$res = $db->query($sql);
-        //$r = $res->fetch_assoc();
       
-        //$num = count($status_array);
-
-        //for ($i=0 ; $i < $num ; $i++) {
-
-         // if ($status_array[$i] == $r["status"]){
-          //  $status_array[$i] = "$status_array[$i]" .'"'. ' selected = "selected" ' ;
-           // }
-        //else $status_array[$i] = "$status_array[$i]";
-        //}
-    
 
 
 
