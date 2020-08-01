@@ -85,7 +85,9 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>URL</th>
                     <th>Type</th>
                     <th>Notes</th>
-                    <th colspan=3></th>
+                    <th>Display</th>
+                    <th>Modify</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -150,15 +152,13 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 
 <script type="text/javascript" language="javascript">
-    $(document).ready( function () {
-        
+    $(document).ready( function () { 
         $('#ceremoniesTable').DataTable( {
             dom: 'lfrtBip',
             buttons: [
                 'copy', 'excel', 'csv', 'pdf'
             ] }
-        );
-
+        );       
         $('#ceremoniesTable thead tr').clone(true).appendTo( '#ceremoniesTable thead' );
         $('#ceremoniesTable thead tr:eq(1) th').each( function (i) {
             var title = $(this).text();
@@ -173,7 +173,6 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 }
             } );
         } );
-    
         var table = $('#ceremoniesTable').DataTable( {
             orderCellsTop: true,
             fixedHeader: true,
