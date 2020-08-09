@@ -1,16 +1,12 @@
 <?php
-session_start();
-/* Log out process, unsets and destroys session variables */
-// echo "session_status(): " . session_status();
-$was_logged_in = false;
-if (session_status() == 2) {
-  // session_status() value of 2 means a session is active
-  if (isset($_SESSION['role']) == true) {
-    $was_logged_in = true; // session value "role" is set when the user is logged in
-  }
-  session_unset();
-  session_destroy();
-}
-header('location: index.php');
-?>
+    //https://www.php.net/manual/en/function.session-unset.php
+    session_start();
+    session_unset();
+    session_destroy();
+    session_write_close();
+    setcookie(session_name(),'',0,'/');
+    session_regenerate_id(true);
 
+    // after clearing the session, send the user to index.php
+    header('location: index.php');
+?>
