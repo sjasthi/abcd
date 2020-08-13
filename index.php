@@ -15,8 +15,10 @@ include('header.php');
 </head>
 <style>
     .image {
-        width: 100px;
-        height: 100px;
+        /* width: 125px;
+        height: 175px; */
+        width: 250px;
+        height: 350px;
         padding: 8px 8px 8px 8px;
         transition: transform .2s;
     }
@@ -72,7 +74,7 @@ include('header.php');
         }
     }
     ?>
-    <h1 id="title2">Welcome to Project ABCD</h1>
+    <h1 id="title2">Welcome to Project ABCD (A Bite of Culture in Dresses)</h1>
     <h2 id="directions">Select a dress to know more about it</h2><br>
 
     <?php
