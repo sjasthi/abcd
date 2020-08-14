@@ -44,6 +44,8 @@ $image_height = "350";
 $image_width = "250";
 $home_view = "grid";
 $carousel_pic_count = 10;
+$description_length = 1000;
+$did_you_know_length = 1000;
 // cookie name
 $row_count_cookie_name = "row_count";
 $dresses_count_cookie_name = "dresses_count";
@@ -52,6 +54,8 @@ $image_height_cookie_name = "img_height";
 $image_width_cookie_name = "img_width";
 $home_view_cookie_name = "home_view";
 $carousel_pic_count_cookie_name = "carousel_pic_count";
+$description_length_cookie_name = "description_length";
+$did_you_know_length_cookie_name = "did_you_know_length";
 // if cookie is present, then use those values
 // if cookie is NOT present, then the defaults we set earlier will come into play
 if(isset($_COOKIE[$favorite_dress_cookie_name])){
@@ -80,6 +84,14 @@ if(isset($_COOKIE[$home_view_cookie_name])){
 
 if(isset($_COOKIE[$carousel_pic_count_cookie_name])){
     $carousel_pic_count = $_COOKIE[$carousel_pic_count_cookie_name];
+}
+
+if(isset($_COOKIE[$description_length_cookie_name])){
+    $description_length = $_COOKIE[$description_length_cookie_name];
+}
+
+if(isset($_COOKIE[$did_you_know_length_cookie_name])){
+    $did_you_know_length = $_COOKIE[$did_you_know_length_cookie_name];
 }
 $home_view_array=['Grid', 'Carousel'];
       
@@ -155,6 +167,18 @@ $form_action = "set_cookie.php";
         </tr>
         
         <tr>
+            <td style="width:300px">Length of Description (in characters):</td>
+            <td><input disabled type="text" maxlength="10" size="13" value="<?php echo $description_length; ?>" title="Current value"></td> 
+            <td><input required type="text" name="description_length" maxlength="20" size="13" value="<?php echo $description_length; ?>" ></td>
+        </tr>
+
+        <tr>
+            <td style="width:300px">Length of Did you know (in characters):</td>
+            <td><input disabled type="text" maxlength="10" size="13" value="<?php echo $did_you_know_length; ?>" title="Current value"></td> 
+            <td><input required type="text" name="did_you_know_length" maxlength="20" size="13" value="<?php echo $did_you_know_length; ?>" ></td>
+        </tr>
+
+        <tr>
             <td style="width:300px">Height of Image (in px):</td>
             <td><input disabled type="int" maxlength="10" size="13" value="<?php echo $image_height; ?>" title="Current value"></td> 
             <td><input required type="text"id= 'height' name="image_height" maxlength="20" size="13" value="<?php echo $image_height; ?>" onkeyup= "convert('C');" ></td>
@@ -178,11 +202,11 @@ $form_action = "set_cookie.php";
                 // // }
         ?>
       </form>
-    <!-- <button class="btn btn-primary btn-md align-items-center" onclick=
+     <!-- <button class="btn btn-primary btn-md align-items-center" onclick=
     "show_image('images/dress_images/amul_girl.jpg', 
                  250, 
                  350 
-                 );">Preview Image Size</button> -->
+                 );">Preview Image Size</button>  -->
     </div> 
 
     
