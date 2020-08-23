@@ -37,7 +37,16 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <a href="index.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo.png"></a> 
+        <?php
+        
+        if ($_COOKIE["home_view"]== "Carousel") {
+                echo '<a href="carousel.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo.png"></a>' ;   
+            } 
+            else  {
+                echo '<a href="index.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo.png"></a>' ;
+            }  
+       
+         ?>   
             
             <!-- Login / Logout Nav menu item
                Checks if there is a valid session and if so displays "logout"
