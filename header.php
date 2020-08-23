@@ -1,14 +1,7 @@
 <?php
-$status = session_status();
-if($status == PHP_SESSION_NONE){
-    //There is no active session
-    session_start();
-}
-if(!isset($page_title)) { $page_title = 'Project ABCD'; }
 
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
+session_start();
+if(!isset($page_title)) { $page_title = 'Project ABCD'; }
 
 ?>
 <!DOCTYPE html>
@@ -59,6 +52,7 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="preferences.php">Preferences<span class="sr-only">(current)</span></a></li>';
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="about.php">About<span class="sr-only">(current)</span></a></li>';
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="help.php">Help<span class="sr-only">(current)</span></a></li>';
+                echo '<li class="nav-item active"><a class="nav-link" id="header" href="admin.php">Admin<span class="sr-only">(current)</span></a></li>';
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="logout.php">Logout<span class="sr-only">(current)</span></a></li>';
             } else {
                 echo '<li class="nav-item active"><a class="nav-link" id="header" href="my_favorite.php">My favorite<span class="sr-only">(current)</span></a>';
