@@ -14,6 +14,7 @@ verifyLogin($page);
 
 ?>
 <?php
+// here is the information to connect to the database
 $mysqli = new MySQLi('localhost', 'root', '', 'quiz_master');
 $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic ASC");
 ?>
