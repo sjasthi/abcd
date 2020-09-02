@@ -4,17 +4,26 @@ session_start();
 require 'bin/functions.php';
 require 'db_configuration.php';
 
-$query = "SELECT * FROM dresses";
+//Read cookies for description and did you know length, use defauts if not set.
+$description_length = 1000;
+$did_you_know_length = 1000;
+
+$description_length_cookie_name = "description_length";
+$did_you_know_length_cookie_name = "did_you_know_length";
+
+if (isset($_COOKIE[$description_length_cookie_name])) {
+    $description_length = $_COOKIE[$description_length_cookie_name];
+}
+
+if (isset($_COOKIE[$did_you_know_length_cookie_name])) {
+    $did_you_know_length = $_COOKIE[$did_you_know_length_cookie_name];
+}
+//Cookies read
+
+$query = "SELECT id, name, LEFT (description, $description_length) as description, LEFT (did_you_know, $did_you_know_length) as did_you_know, category, type, state_name, key_words, image_url, status, notes FROM dresses";
 
 $GLOBALS['data'] = mysqli_query($db, $query);
-// $GLOBALS['topic'] = mysqli_query($db, $query);
-// $GLOBALS['Dress'] = mysqli_query($db, $query);
-// $GLOBALS['choice_1'] = mysqli_query($db, $query);
-// $GLOBALS['choice_2'] = mysqli_query($db, $query);
-// $GLOBALS['choice_3'] = mysqli_query($db, $query);
-// $GLOBALS['choice_4'] = mysqli_query($db, $query);
-// $GLOBALS['answer'] = mysqli_query($db, $query);
-// $GLOBALS['image_name'] = mysqli_query($db, $query);
+
 ?>
 
 

@@ -7,6 +7,10 @@
   text-align: center;
 }
 
+.body {
+  text-align: center;
+}
+
 .title {
   font-family: "Times New Roman";
   color: rgb(0,200,55);
@@ -31,8 +35,8 @@
 }
 </style>
 
-<body>
-<div class="container">
+<body class= "body">
+
 <?php
 include('header.php');
 include_once 'db_configuration.php';
@@ -66,22 +70,21 @@ else if(isset($_GET['name'])) {
 if ($row_data->num_rows > 0) {
     // fetch row_data from $_Globals
     while($row = $row_data->fetch_assoc()) {
-      print( '<h2 class= "head">'.$row["name"]. '</h2>');
-      echo("<image class = 'image' src = images/dress_images/".$row["image_url"]. "></image>");    
-      print( '<h3 class= "title"> Description: </h3><p class= "words" >'.$row["description"]. '</p>
-              <h3 class= "title"> Did You Know? </h3><p class= "words">' .$row["did_you_know"]. '</p>
-              <h3 class= "title"> Category </h3><p class= "words">' .$row["category"]. '</p>
-              <h3 class= "title"> Type </h3><p class= "words">' .$row["type"]. '</p>
-              <h3 class= "title"> State Name </h3><p class= "words">' .$row["state_name"]. '</p>
-              <h3 class= "title"> Key Words </h3><p class= "words">' .$row["key_words"]. '</p>
-              <h3 class= "title"> Status </h3><p class= "words">' .$row["status"]. '</p>
-              <h3 class= "title"> Notes </h3><p class= "words">' .$row["notes"]. '</p>' );
+      print( '<div class ="container"><div class="row"><div class="col"><h2 class= "head">'.$row["name"]. '</h2></div></div></div>');
+      echo("<div class='container'><div class='row'><div class='col'><image class = 'image' src = images/dress_images/".$row["image_url"]. "></image></div></div></div>");    
+      print( '<div class="container"><div class="row"><div class="col"><h3 class= "title"> Description: </h3><p class= "words" >'.$row["description"]. '</p></div></div>
+      <div class="row"><div class="col"><h3 class= "title"> Did You Know? </h3><p class= "words">' .$row["did_you_know"]. '</p></div></div>
+      <div class="row"><div class="col"><h3 class= "title"> Category </h3><p class= "words">' .$row["category"]. '</p></div></div>
+      <div class="row"><div class="col"><h3 class= "title"> Type </h3><p class= "words">' .$row["type"]. '</p></div></div>
+      <div class="row"><div class="col"><h3 class= "title"> State Name </h3><p class= "words">' .$row["state_name"]. '</p></div></div>
+      <div class="row"><div class="col"><h3 class= "title"> Key Words </h3><p class= "words">' .$row["key_words"]. '</p></div></div>
+      <div class="row"><div class="col"><h3 class= "title"> Status </h3><p class= "words">' .$row["status"]. '</p></div></div>
+      <div class="row"><div class="col"><h3 class= "title"> Notes </h3><p class= "words">' .$row["notes"]. '</p></div></div></div>' );
     }
 } else {
   print('no data');
 }
 
 ?>
-</div>
 </body>
 </html>
