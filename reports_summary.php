@@ -11,16 +11,15 @@ include('header.php');
 
 
 <html>
-
 <body>
 
-  <!-- ==================      Status of Dresses Table   -->
-
+<!-- Start Status of Dresses Table -->
   <div class="right-content">
     <div class="container">
-      <table class="datatable table table-striped table-bordered datatable-style" style="width: 50%; font-weight: bold;">
-
+      <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
         <h3 style='color: #01B0F1;'>Status Summary:</h3>
+        <center>
+        <span class = "a">
         <tr>
           <th>Status</th>
           <th>Count</th>
@@ -32,8 +31,8 @@ include('header.php');
           <td>
             <?php
               $result = mysqli_query($db, "SELECT * FROM `dresses` WHERE status='proposed'");
-              $num_rows = mysqli_num_rows($result);
-              echo $num_rows;
+              $proposed = mysqli_num_rows($result);
+              echo $proposed;
             ?>
           </td>
         </tr>
@@ -43,8 +42,8 @@ include('header.php');
           <td>
             <?php
               $result = mysqli_query($db, "SELECT * FROM `dresses` WHERE status='approved'");
-              $num_rows = mysqli_num_rows($result);
-              echo $num_rows;
+              $approved = mysqli_num_rows($result);
+              echo $approved;
             ?>
           </td>
         </tr>
@@ -54,8 +53,8 @@ include('header.php');
           <td>
             <?php
               $result = mysqli_query($db, "SELECT * FROM dresses WHERE status='writeup_done'");
-              $num_rows = mysqli_num_rows($result);
-              echo $num_rows;
+              $writeUPdone = mysqli_num_rows($result);
+              echo $writeUPdone;
             ?>
           </td>
         </tr>
@@ -65,8 +64,8 @@ include('header.php');
           <td>
             <?php
               $result = mysqli_query($db, "SELECT * FROM dresses WHERE status='art_work_done'");
-              $num_rows = mysqli_num_rows($result);
-              echo $num_rows;
+              $artWORKdone = mysqli_num_rows($result);
+              echo $artWORKdone;
             ?>
           </td>
         </tr>
@@ -76,8 +75,8 @@ include('header.php');
           <td>
             <?php
               $result = mysqli_query($db, "SELECT * FROM dresses WHERE status='designed'");
-              $num_rows = mysqli_num_rows($result);
-              echo $num_rows;
+              $designDONE = mysqli_num_rows($result);
+              echo $designDONE;
             ?>
           </td>
         </tr>
@@ -87,24 +86,85 @@ include('header.php');
           <td>
             <?php
               $result = mysqli_query($db, "SELECT * FROM dresses WHERE status='completed'");
-              $num_rows = mysqli_num_rows($result);
-              echo $num_rows;
+              $completed = mysqli_num_rows($result);
+              echo $completed;
             ?>
           </td>
         </tr>
-
       </table>
-
+      </span>
+      </center>
     </div>  
-    <!-- End Status Table -->
+<!-- End Dresses Table -->
 
-    <!-- ==================      Key Words Table   -->
+<!-- Start Pie Chart for Status of Dresses -->
+<center>
+      <head>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+    
+      //Setting value of javascript variables to the php ones in table 
+      var proposed = "<?php echo $proposed ?>"; 
+      var approved = "<?php echo $approved ?>"; 
+      var writeUPdone = "<?php echo $writeUPdone ?>";
+      var artWORKdone = "<?php echo $artWORKdone ?>";
+      var designDONE = "<?php echo $designDONE ?>";
+      var completed = "<?php echo $completed ?>";
+
+      //Creating array 
+      var dresses_array = [
+          ['Status', 'Count'],
+          ['Proposed', proposed],
+          ['Approved', approved],
+          ['Art Work Done', artWORKdone],
+          ['Write-Up Done', writeUPdone],
+          ['Design Done', designDONE],
+          ['Completed', completed]
+        ];
+
+      google.load("visualization", "1", { packages: ["table", "corechart"] });
+      google.charts.setOnLoadCallback(function() { 
+            drawChart( dresses_array, 'piechart_3d');
+        });
+      
+      //Calling array and the 3d pie chart in the function
+      function drawChart(dresses_array, div_id) {
+            var data_dresses = new google.visualization.DataTable();
+        
+              //Calling 'Status' and 'Count' from the 2d array above
+              data_dresses.addColumn('string', dresses_array[0][0]);
+              data_dresses.addColumn('number', dresses_array[0][1]);
+                
+                //Dynamic way of finding length of array no matter how much data is entered
+                for (var i = 1; i < dresses_array.length; i++) {
+                  // Accessing elements of array
+                  data_dresses.addRow([ dresses_array[i][0], parseInt(dresses_array[i][1])]); 
+                }
+
+            var options_dresses = {
+              is3D: true
+            };
+
+            var chart_dresses = new google.visualization.PieChart(document.getElementById(div_id));
+              chart_dresses.draw(data_dresses, options_dresses);
+
+            }
+        </script>
+      </head>
+    <body>
+      <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+    </body>
+</span>
+</center>
+<!-- End of Status of Dresses Pie Chart -->
+
+
+<!-- Start Key Words Table -->
     <br>
     <div class="right-content">
 
       <div class="container">
-
-        <table class="datatable table table-striped table-bordered datatable-style" style="width: 50%; font-weight: bold;">
+        <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
 
 
           <?php
@@ -133,6 +193,7 @@ include('header.php');
 
           echo "
         <h3 style = 'color: #01B0F1;'>Key Word Summary:</h3>
+        <center>
         <tr>
           <th>Key Words</th>
           <th>Frequency</th>
@@ -148,17 +209,20 @@ include('header.php');
           ?>
         </table>
 
-      </div> <!-- // end key words table -->
+      </div> 
+      </center>
+<!--End Key Words Table-->
 
-      <!--=========== Type table ==================-->
+<!-- Start Type table -->
       <br>
       <div class="right-content">
         <div class="container">
 
-          <table class="datatable table table-striped table-bordered datatable-style" style="width: 50%; font-weight: bold;">
-
+          <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
+          
 
             <h3 style='color: #01B0F1;'>Status of Type:</h3>
+            <center>
             <tr>
               <th>Type</th>
               <th>Count</th>
@@ -170,8 +234,8 @@ include('header.php');
               <td>
                 <?php
                 $result = mysqli_query($db, "SELECT * FROM `dresses` WHERE type='boys'");
-                $num_rows = mysqli_num_rows($result);
-                echo $num_rows;
+                $boys = mysqli_num_rows($result);
+                echo $boys;
                 ?>
               </td>
             </tr>
@@ -181,8 +245,8 @@ include('header.php');
               <td>
                 <?php
                 $result = mysqli_query($db, "SELECT * FROM `dresses` WHERE type='men'");
-                $num_rows = mysqli_num_rows($result);
-                echo $num_rows;
+                $men = mysqli_num_rows($result);
+                echo $men;
                 ?>
               </td>
             </tr>
@@ -192,8 +256,8 @@ include('header.php');
               <td>
                 <?php
                 $result = mysqli_query($db, "SELECT * FROM dresses WHERE type='women'");
-                $num_rows = mysqli_num_rows($result);
-                echo $num_rows;
+                $women = mysqli_num_rows($result);
+                echo $women;
                 ?>
               </td>
             </tr>
@@ -203,8 +267,8 @@ include('header.php');
               <td>
                 <?php
                 $result = mysqli_query($db, "SELECT * FROM dresses WHERE type='girls'");
-                $num_rows = mysqli_num_rows($result);
-                echo $num_rows;
+                $girls = mysqli_num_rows($result);
+                echo $girls;
                 ?>
               </td>
             </tr>
@@ -214,23 +278,57 @@ include('header.php');
               <td>
                 <?php
                 $result = mysqli_query($db, "SELECT * FROM dresses WHERE type='other'");
-                $num_rows = mysqli_num_rows($result);
-                echo $num_rows;
+                $other = mysqli_num_rows($result);
+                echo $other;
                 ?>
               </td>
             </tr>
 
         </div>
-        <br>
-        <!-- End Type Table -->
+        </center>
+<!-- End Type Table -->
 
-        <!-- ==================      Category Table   -->
+<!-- Start Pie Chart for Type Table -->
+<center>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    
+      //Setting value of javascript variables to the php ones in table 
+      var boys = "<?php echo $boys ?>"; 
+      var men = "<?php echo $men ?>"; 
+      var women = "<?php echo $women ?>";
+      var girls = "<?php echo $girls ?>";
+      var other = "<?php echo $other ?>";
+
+        var type_array = [
+          ['Type', 'Count'],
+          ['Boys', boys],
+          ['Men', men],
+          ['Women', women],
+          ['Girls', girls],
+          ['Other', other]
+        ];
+
+      google.charts.load("visualization", "1", { packages: ["table", "corechart"] });
+      google.charts.setOnLoadCallback(function() { 
+            drawChart(type_array, 'piechart_2d');
+        });
+
+    </script>
+  <body>
+    <div id="piechart_2d" style="width: 900px; height: 500px;"></div>
+  </body>
+</center>
+<!-- End Pie Chart for Type Table -->
+
+<!-- Start Category Table -->
         <br>
+        <center>
         <div class="right-content">
 
           <div class="container">
 
-            <table class="datatable table table-striped table-bordered datatable-style" style="width: 50%; font-weight: bold;">
+            <table class="datatable table table-striped table-bordered datatable-style" style="width: 40%; font-weight: bold;">
 
 
               <?php
@@ -274,10 +372,9 @@ include('header.php');
               ?>
             </table>
 
-          </div> <!-- // end category table -->
-
-          <!-- End Category Table -->
+          </div> 
+          </center>
+<!-- End Category Table -->
 
 </body>
-
 </html>
