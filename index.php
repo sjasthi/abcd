@@ -1,8 +1,10 @@
 <?php
-$status = session_status();
-if($status == PHP_SESSION_NONE){
-    session_start();
-}
+
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+
 require 'bin/functions.php';
 require 'db_configuration.php';
 include('header.php');
