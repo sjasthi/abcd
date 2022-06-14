@@ -36,12 +36,11 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
         <ul class="navbar-nav mr-auto">
         <?php
         
-        if ($_COOKIE["home_view"] == "Carousel") {
-                echo '<a href="carousel.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo.png"></a>' ;   
-            } 
-            else  {
+        
+                //echo '<a href="carousel.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo.png"></a>' ;   
+  
                 echo '<a href="index.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo.png"></a>' ;
-            }  
+
        
          ?>   
             
