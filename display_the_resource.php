@@ -54,7 +54,7 @@ if ($row_data->num_rows > 0) {
     while($row = $row_data->fetch_assoc()) {
       print( '<h2 class= "head">'.$row["name"]. '</h2>');
       print( '
-              <h3 class= "title"> Id </h3><p class= "words">' .$row["id"]. '</p>
+              <h3 class= "title"> Dress Name </h3><p class= "words">' .$row["name"]. '</p>
               <h3 class= "title"> Type </h3><p class= "words">' .$row["type"]. '</p>');
               print('<h3 class= "title"> Url </h3><p class= "words">' 
               .'<a href="'.$row["url"].'" target="_blank">'.$row["url"].'</a>' . '</p>');
