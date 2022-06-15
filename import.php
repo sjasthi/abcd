@@ -14,14 +14,33 @@ if(isset($_POST["upload"])){
     $count = 0;
     if($_FILES["file"]["size"] > 0){
         $file = fopen($fileName, "r");
+        $field_csv = array();
         
         
-        while(($column = fgetcsv($file, 10000, ",")) !== FALSE){
+        while(($column = fgetcsv($file, 0, ",")) !== FALSE){
             if($count >= 1) {
-                $sqlInsert = "Insert into dresses (id, name, description, did_you_know, category, type, state_name, key_words, image_url, status, notes) values ('" . $column[0] . "', '" . $column[1]. "', '" . $column[2]. "', '" . $column[3]. "', '" . $column[4]. "', '" . $column[5]. "', '" . $column[6]. "', '" . $column[7]. "', '" . $column[8]. "', '" . $column[9]. "', '" . $column[10]. "')";
-            
-                $result = mysqli_query($conn, $sqlInsert);
-            
+                $field_csv['id'] = mysqli_real_escape_string($conn,$column[0]);
+                $field_csv['name'] = mysqli_real_escape_string($conn,$column[1]);
+                $field_csv['description'] = mysqli_real_escape_string($conn,$column[2]);
+                $field_csv['did_you_know'] = mysqli_real_escape_string($conn,$column[3]);
+                $field_csv['category'] = mysqli_real_escape_string($conn,$column[4]);
+                $field_csv['type'] = mysqli_real_escape_string($conn,$column[5]);
+                $field_csv['state_name'] = mysqli_real_escape_string($conn,$column[6]);
+                $field_csv['key_words'] = mysqli_real_escape_string($conn,$column[7]);
+                $field_csv['image_url'] = mysqli_real_escape_string($conn,$column[8]);
+                $field_csv['status'] = mysqli_real_escape_string($conn,$column[9]);
+                $field_csv['notes'] = mysqli_real_escape_string($conn,$column[10]);
+                
+                try {
+                    $query = "INSERT INTO dresses 
+                    (id, name, description, did_you_know, category, type, 
+                    state_name, key_words, image_url, status, notes) 
+                    VALUES ('" . $field_csv['id'] . "', '" . $field_csv['name'] . "', '" . $field_csv['description'] . "', '" . $field_csv['did_you_know']. "', '" . $field_csv['category']. "', '" . $field_csv['type'] . "', '" . $field_csv['state_name'] . "', '" . $field_csv['key_words'] . "', '" . $field_csv['image_url']. "', '" . $field_csv['status'] . "', '" . $field_csv['notes'] . "')";
+                    $result = mysqli_query($conn, $query);
+                } catch (mysqli_sql_exception $e) {
+                    var_dump($e);
+                    exit;
+                }
                 if(!empty($result)){
                     continue;
                 }else{
