@@ -1,6 +1,18 @@
  
 <?php $page_title = 'Admin'; ?>
 <?php 
+
+    $status = session_status();
+    if($status == PHP_SESSION_NONE){
+        //There is no active session
+        session_start();
+    }
+
+    if ($_SESSION['role'] != 'admin'){
+        echo "not an admin";
+        header('location: index.php'); 
+    }
+
     require 'bin/functions.php';
     require 'db_configuration.php';
     include('header.php'); 
