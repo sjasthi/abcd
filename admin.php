@@ -50,7 +50,7 @@
             <td><a href="users.php"><img src="https://cdn4.iconfinder.com/data/icons/universal-line/614/1017_-_User_Management-512.png" width="170" height="170"></td></a>
             <td><a href="import.php"><img src="https://cdn1.iconfinder.com/data/icons/modern-flat-app-gui-1/50/Download-512.png" width="220" height="220"></td></a>
             <td><a href="export.php"><img src="https://cdn3.iconfinder.com/data/icons/arrows-set2/32/arr32px076-512.png" width="80" height="80"></td></a>
-            <td><a href="exportPDf.php"><img src="https://cdn1.iconfinder.com/data/icons/bootstrap-vol-3/16/filetype-pdf-1024.png" width="80" height="80"></td></a>
+            <td><a href="exportPDF.php"><img src="https://cdn1.iconfinder.com/data/icons/bootstrap-vol-3/16/filetype-pdf-1024.png" width="80" height="80"></td></a>
         </tr>
     </table>
 
