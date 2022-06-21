@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2020 at 06:22 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.7
+-- Generation Time: Jun 21, 2022 at 10:11 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -325,6 +324,31 @@ INSERT INTO `preferences` (`id`, `name`, `value`, `comments`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `resources`
+--
+
+CREATE TABLE `resources` (
+  `id` int(10) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `url` varchar(500) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `notes` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `resources`
+--
+
+INSERT INTO `resources` (`id`, `name`, `url`, `type`, `notes`) VALUES
+(1, 'Saree Wiki', 'https://i.pinimg.com/564x/36/82/e7/3682e7caa082b9e86d9085180339e5f5.jpg', 'image', 'Saree wiki'),
+(2, 'Gagracholi', 'https://www.youtube.com/embed/6EeLwYPUVHM', 'video', 'Gagracholi wiki'),
+(3, 'Crop Top', 'https://en.wikipedia.org/wiki/Gagra_choli', 'wiki.', '12345678910'),
+(4, 'Saree Wiki', 'https://en.wikipedia.org/wiki/Gagra_choli', 'url', 'Saree wiki'),
+(7, 'Test', 'https://i.pinimg.com/564x/36/82/e7/3682e7caa082b9e86d9085180339e5f5.jpg', 'IMAGE', 'test notes');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -365,6 +389,12 @@ ALTER TABLE `preferences`
   ADD UNIQUE KEY `id` (`id`);
 
 --
+-- Indexes for table `resources`
+--
+ALTER TABLE `resources`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -379,6 +409,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `dresses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
+
+--
+-- AUTO_INCREMENT for table `resources`
+--
+ALTER TABLE `resources`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
