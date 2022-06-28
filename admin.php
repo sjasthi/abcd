@@ -51,7 +51,7 @@
             <td><a href="import.php"><img src="https://cdn1.iconfinder.com/data/icons/modern-flat-app-gui-1/50/Download-512.png" width="220" height="220"></td></a>
             <td><a href="export.php"><img src="https://cdn3.iconfinder.com/data/icons/arrows-set2/32/arr32px076-512.png" width="80" height="80"></td></a>
             <td><a href="exportPDF.php"><img src="https://cdn1.iconfinder.com/data/icons/bootstrap-vol-3/16/filetype-pdf-1024.png" width="80" height="80"></td></a>
-            <td><a href="export_powerpoint.php"><img src="https://cdn0.iconfinder.com/data/icons/files-documents-12/128/file_1_ppt_document_powerpoint_power_point_download-13-256.png" width="80" height="80"></td></a>
+            <td><a href="export_powerpoint_options.php"><img src="https://cdn0.iconfinder.com/data/icons/files-documents-12/128/file_1_ppt_document_powerpoint_power_point_download-13-256.png" width="80" height="80"></td></a>
         </tr>
     </table>
 
