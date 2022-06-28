@@ -1,15 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <style>
+    h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+    }
+    </style>
+    <?php
+    include('header.php'); 
+    ?>
+    <h1>PowerPoint Downloaded...</h1>
+    <form form style="text-align: center;">
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
+</html>
+
 <?php
 
-use PhpOffice\PhpPowerpoint\PhpPowerpoint;
-use PhpOffice\PhpPowerpoint\IOFactory;
-use PhpOffice\PhpPowerpoint\Style\Alignment;
-use PhpOffice\PhpPowerpoint\Style\Color;
-use PhpOffice\PhpPowerpoint\Shape\MemoryDrawing;
-use PhpOffice\PhpPowerpoint\Style\Fill;
+use PhpOffice\PhpPresentation\PhpPresentation;
+use PhpOffice\PhpPresentation\IOFactory;
+use PhpOffice\PhpPresentation\Style\Color;
+use PhpOffice\PhpPresentation\Style\Alignment;
 
-require_once 'F:\XAMPP\htdocs\abcd\vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
-$objPHPPowerPoint = new PhpPowerpoint();
+
+$objPHPPowerPoint = new PhpPresentation();
 
 // Create slide
 $currentSlide = $objPHPPowerPoint->getActiveSlide();
@@ -18,7 +37,7 @@ $currentSlide = $objPHPPowerPoint->getActiveSlide();
 $shape = $currentSlide->createDrawingShape();
 $shape->setName('PHPPowerPoint logo')
 ->setDescription('PHPPowerPoint logo')
-->setPath('./resources/phppowerpoint_logo.gif')
+->setPath('vendor\phpoffice\phppresentation\samples\resources\phppowerpoint_logo.gif')
 ->setHeight(36)
 ->setOffsetX(10)
 ->setOffsetY(10);
@@ -39,7 +58,5 @@ $textRun->getFont()->setBold(true)
 ->setColor( new Color( 'FFE06B20' ) );
 
 $oWriterPPTX = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
-$oWriterPPTX->save(DIR . "/sample.pptx");
-$oWriterODP = IOFactory::createWriter($objPHPPowerPoint, 'ODPresentation');
-$oWriterODP->save(DIR . "/sample.odp");
+$oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\sample.pptx");
 ?>
