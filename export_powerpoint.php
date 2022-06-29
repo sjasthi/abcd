@@ -37,13 +37,13 @@ $currentSlide = $objPHPPowerPoint->getActiveSlide();
 $shape = $currentSlide->createDrawingShape();
 $shape->setName('PHPPowerPoint logo')
 ->setDescription('PHPPowerPoint logo')
-->setPath('vendor\phpoffice\phppresentation\samples\resources\phppowerpoint_logo.gif')
-->setHeight(36)
-->setOffsetX(10)
-->setOffsetY(10);
+->setPath('images\about_images\abcd_logo.png')
+->setHeight(72)
+->setOffsetX(20)
+->setOffsetY(20);
 $shape->getShadow()->setVisible(true)
-->setDirection(45)
-->setDistance(10);
+->setDirection(90)
+->setDistance(20);
 
 // Create a shape (text)
 $shape = $currentSlide->createRichTextShape()
