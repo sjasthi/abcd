@@ -83,26 +83,13 @@ if (mysqli_error($mysqli)) {
         /**
          * while($row = $sql->fetch_assoc())
          */
+        
          $count = 0;
-         while($count != 5) {
-            $lineData = array($row['id'],$row['name'],$row['description'],$row['did_you_know'],$row['category'],$row['type'],$row['state_name'],$row['key_words'],$row['image_url'],$row['status'],$row['notes']);
+         while($count != 5) {            
             
-            
-            $slide = $objPHPPowerPoint->getActiveSlide();
-            
-            $shape = $slide->createDrawingShape();
-            $shape->setName($row['name'])
-            ->setDescription($row['description'])
-            ->setPath('images\dress_images\adul_kalam_dress.jpg')
-            ->setHeight(72)
-            ->setOffsetX(20)
-            ->setOffsetY(20);
-            $shape->getShadow()->setVisible(true)
-            ->setDirection(90)
-            ->setDistance(20);
-            
+            $slide = $objPHPPowerPoint->createSlide();
+                    
             $count++;
-            $objPHPPowerPoint->addSlide($slide);
         }
         $oWriterPPTX = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
         $oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\sample.pptx");
