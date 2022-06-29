@@ -42,11 +42,13 @@ if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($db, $_GET['id']);
     $sql = "SELECT * FROM `resources` WHERE id = " . $id;
     $GLOBALS['row_data'] = mysqli_query($db, $sql);
+
 } else if(isset($_GET['name'])) {
 
     $name = mysqli_real_escape_string($db, $_GET['name']);
     $sql = "SELECT * FROM `resources` WHERE name = '" . $name ."'";
     $GLOBALS['row_data'] = mysqli_query($db, $sql);
+
 }
 
 if ($row_data->num_rows > 0) {
@@ -71,7 +73,8 @@ if ($row_data->num_rows > 0) {
       print('<h3 class= "title"> Notes </h3><p class= "words">' .$row["notes"]. '</p>' );
     }
 } else {
-  print('no data');
+  print('We could not find a resource for this dress, click the resource button to create one!<br>');
+  print('<a class="btn btn-info btn-sm" href="create_resource.php">Create a Resource</a>');
 }
 
 ?>
