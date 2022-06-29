@@ -91,6 +91,25 @@ class Slide extends AbstractSlide implements ComparableInterface, ShapeContainer
         // Set note
         $this->setNote(new Note());
     }
+    
+    public function createSlide() {
+        // Set parent
+        $this->parent = $pParent;
+        // Shape collection
+        $this->shapeCollection = new \ArrayObject();
+        // Set identifier
+        $this->identifier = md5(rand(0, 9999) . time());
+        // Set Slide Layout
+        if ($this->parent instanceof PhpPresentation) {
+            $arrayMasterSlides = $this->parent->getAllMasterSlides();
+            $oMasterSlide = reset($arrayMasterSlides);
+            $arraySlideLayouts = $oMasterSlide->getAllSlideLayouts();
+            $oSlideLayout = reset($arraySlideLayouts);
+            $this->setSlideLayout($oSlideLayout);
+        }
+        // Set note
+        $this->setNote(new Note());
+    }
 
     /**
      * Get slide layout.

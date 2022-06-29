@@ -24,6 +24,8 @@ use PhpOffice\PhpPresentation\PhpPresentation;
 use PhpOffice\PhpPresentation\IOFactory;
 use PhpOffice\PhpPresentation\Style\Color;
 use PhpOffice\PhpPresentation\Style\Alignment;
+use PhpOffice\PhpPresentation\Slide;
+use PhpOffice\PhpPresentation\Slide\Iterator;
 
 require_once 'vendor/autoload.php';
 
@@ -57,6 +59,63 @@ $textRun->getFont()->setBold(true)
 ->setSize(60)
 ->setColor( new Color( 'FFE06B20' ) );
 
-$oWriterPPTX = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
-$oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\sample.pptx");
+// $oWriterPPTX = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
+// $oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\sample.pptx");
+
+
+
+$mysqli = mysqli_connect('localhost', 'root', '', 'abcd_db');
+$TableName = "dresses";
+
+$strSQL = "SELECT * FROM $TableName";
+$sql = mysqli_query($mysqli, $strSQL);
+
+if (mysqli_error($mysqli)) {
+    echo mysqli_error($mysqli);
+} else {
+    if($sql->num_rows > 0) {
+        $delimiter = ",";
+        $filename = "dress-data_" . date('Y-m-d') . ".csv";
+        
+        $f = fopen('php://memory', 'w');
+        $fields = array('id', 'name', 'description', 'did_you_know', 'category', 'type', 'state_name', 'key_words', 'image_url', 'status', 'notes');
+
+        /**
+         * while($row = $sql->fetch_assoc())
+         */
+         $count = 0;
+         while($count != 5) {
+            $lineData = array($row['id'],$row['name'],$row['description'],$row['did_you_know'],$row['category'],$row['type'],$row['state_name'],$row['key_words'],$row['image_url'],$row['status'],$row['notes']);
+            
+            
+            $slide = $objPHPPowerPoint->getActiveSlide();
+            
+            $shape = $slide->createDrawingShape();
+            $shape->setName($row['name'])
+            ->setDescription($row['description'])
+            ->setPath('images\dress_images\adul_kalam_dress.jpg')
+            ->setHeight(72)
+            ->setOffsetX(20)
+            ->setOffsetY(20);
+            $shape->getShadow()->setVisible(true)
+            ->setDirection(90)
+            ->setDistance(20);
+            
+            $count++;
+            $objPHPPowerPoint->addSlide($slide);
+        }
+        $oWriterPPTX = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
+        $oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\sample.pptx");
+    }
+}
+
+
+
+
 ?>
+
+
+
+
+
+
