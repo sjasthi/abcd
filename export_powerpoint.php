@@ -52,7 +52,7 @@ $shape = $currentSlide->createRichTextShape()
 ->setOffsetX(170)
 ->setOffsetY(180);
 $shape->getActiveParagraph()->getAlignment()->setHorizontal( Alignment::HORIZONTAL_CENTER );
-$textRun = $shape->createTextRun('Thank you for using PHPPowerPoint!');
+$textRun = $shape->createTextRun('Thank You For Using ABCD Project!');
 $textRun->getFont()->setBold(true)
 ->setSize(60)
 ->setColor( new Color( 'FFE06B20' ) );
