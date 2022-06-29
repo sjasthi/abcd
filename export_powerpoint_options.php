@@ -9,7 +9,8 @@ include('header.php');
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
       html, body {
-      min-height: 100%;
+      min-height: 50%;
+      color: white;
       }
       body, div, form, input, textarea, label { 
       padding: 0;
@@ -17,7 +18,7 @@ include('header.php');
       outline: none;
       font-family: Roboto, Arial, sans-serif;
       font-size: 14px;
-      color: #666;
+      color: white;
       line-height: 22px;
       }
       h1 {
@@ -25,7 +26,7 @@ include('header.php');
       margin: 0;
       line-height: 45px;
       font-size: 45px;
-      color: #fff;
+      color: white;
       z-index: 2;
       }
       .testbox {
@@ -43,14 +44,14 @@ include('header.php');
       font-size: 20px;
       }
       form {
-      width: 100%;
+      width: 40%;
       padding: 20px;
       border-radius: 6px;
-      background: #eee;
+      background: #2a3843;
       }
       .banner {
       position: relative;
-      height: 250px;
+      height: 200px;
       background-image: url("/uploads/media/default/0001/02/4e42b3735b93106f8167f9cfe092931dba56df55.jpeg");  
       background-size: cover;
       display: flex;
@@ -60,7 +61,7 @@ include('header.php');
       }
       .banner::after {
       content: "";
-      background-color: rgba(0, 0, 0, 0.4); 
+      background-color: #1ab189; 
       position: absolute;
     width: 100%;
       height: 100%;
@@ -79,12 +80,12 @@ include('header.php');
       padding: 5px;
       }
       .item:hover, .question label:hover, input:hover::placeholder {
-      color:  #000;
+      color:  #b5b5b5;
       }
       .item input:hover,  .item textarea:hover {
       border: 1px solid transparent;
       box-shadow: 0 0 3px 0  #aa1409;
-      color:  #a3a1a1;
+      color:  #1ab189;
       }
       .item {
       position: relative;
@@ -100,7 +101,7 @@ include('header.php');
       cursor: pointer;
       }
       .red {
-      color: red;
+      color: #1ab189;
       }
       .question span {
       margin-left: 30px;
@@ -115,7 +116,7 @@ include('header.php');
       border: 2px solid #ccc;
       }
       input[type=radio]:checked + label:before, label.radio:hover:before {
-      border: 2px solid #aa1409;
+      border: 2px solid #1ab189;
     }
       label.radio:after {
       content: "";
@@ -142,15 +143,15 @@ include('header.php');
       padding: 10px;
       border: none;
       border-radius: 5px; 
-      background: #aa1409;
+      background: #1ab189;
       font-size: 16px;
       color: #fff;
       cursor: pointer;
       }
       button:hover {
-      background: #790e06;
+      background: #12785d;
       }
-      @media (min-width: 568px) {
+      @media (min-width: 568px) {}
       .name-item, .city-item {
       display: flex;
       flex-wrap: wrap;
@@ -174,18 +175,6 @@ include('header.php');
             <div>
             <input type="number" id="quantity" name="quantity" min="1" max="100">
             </div>
-          </div>
-        </div>
-        <div class="question">
-          <label>Query Types</label>
-          <div class="question-answer">
-          <select id="type" name="type">
-                <option value="boys">boys</option>
-                <option value="girls">girls</option>
-                <option value="men">men</option>
-                <option value="women">women</option>
-                <option value="other">other</option>
-            </select>
           </div>
         </div>
 

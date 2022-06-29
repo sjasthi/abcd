@@ -29,7 +29,6 @@ use PhpOffice\PhpPresentation\Slide\Iterator;
 
 require_once 'vendor/autoload.php';
 
-
 $objPHPPowerPoint = new PhpPresentation();
 
 // Create slide
@@ -62,8 +61,6 @@ $textRun->getFont()->setBold(true)
 // $oWriterPPTX = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
 // $oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\sample.pptx");
 
-
-
 $mysqli = mysqli_connect('localhost', 'root', '', 'abcd_db');
 $TableName = "dresses";
 
@@ -88,6 +85,17 @@ if (mysqli_error($mysqli)) {
          while($count != 5) {            
             
             $slide = $objPHPPowerPoint->createSlide();
+
+            $shape = $slide->createDrawingShape();
+            $shape->setName('PHPPowerPoint logo')
+            ->setDescription('PHPPowerPoint logo')
+            ->setPath('images\dress_images\amul_girl.jpg')
+            ->setHeight(300)
+            ->setOffsetX(300)
+            ->setOffsetY(300);
+            $shape->getShadow()->setVisible(true)
+            ->setDirection(90)
+            ->setDistance(20);
                     
             $count++;
         }
@@ -95,10 +103,6 @@ if (mysqli_error($mysqli)) {
         $oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\sample.pptx");
     }
 }
-
-
-
-
 ?>
 
 
