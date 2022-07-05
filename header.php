@@ -1,6 +1,10 @@
 <?php
 
-session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+
 if(!isset($page_title)) { $page_title = 'Project ABCD'; }
 
 ?>
@@ -32,7 +36,7 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
         <ul class="navbar-nav mr-auto">
         <?php
         
-        if ($_COOKIE["home_view"]== "Carousel") {
+        if ($_COOKIE["home_view"] == "Carousel") {
                 echo '<a href="carousel.php" title="SILC Project ABCD"><img src="images/about_images/abcd_logo.png"></a>' ;   
             } 
             else  {
@@ -53,7 +57,6 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
         </form>-->
         <ul class="navbar-nav mr-right">
         <li class="nav-item">
-
         <?php
         
         if (isset($_SESSION['role'])){
