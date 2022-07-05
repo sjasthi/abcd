@@ -105,7 +105,7 @@ if (mysqli_error($mysqli)) {
             //testing prints
             echo("<br><br>");
             
-            echo($lineData[0]. "<br>" . $lineData[1] ."<br>" . $lineData[2] ."<br>" . $lineData[3] ."<br>" . $lineData[4] ."<br>" . $lineData[5] ."<br>" . $lineData[6] . "<br>". $lineData[7]);
+            echo("Name: ".$lineData[0]. "<br>" . "Description: ". $lineData[1] ."<br>" . "Did You Know: ". $lineData[2] ."<br>" . "Category: ". $lineData[3] ."<br>" . "Type: ". $lineData[4] ."<br>" . "State Name: ". $lineData[5] ."<br>" . "Key Words: ". $lineData[6] . "<br>". "Image: ". $lineData[7]. "<br>". "Status: ". $lineData[8]. "<br>". "Notes: ". $lineData[9]);
             
             //create picture 
             $shape = $slide->createDrawingShape();
