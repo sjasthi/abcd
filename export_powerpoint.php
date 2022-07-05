@@ -104,9 +104,10 @@ if (mysqli_error($mysqli)) {
 
             //testing prints
             echo("<br><br>");
-            
+            echo("_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________<br>");
             echo("Name: ".$lineData[0]. "<br>" . "Description: ". $lineData[1] ."<br>" . "Did You Know: ". $lineData[2] ."<br>" . "Category: ". $lineData[3] ."<br>" . "Type: ". $lineData[4] ."<br>" . "State Name: ". $lineData[5] ."<br>" . "Key Words: ". $lineData[6] . "<br>". "Image: ". $lineData[7]. "<br>". "Status: ". $lineData[8]. "<br>". "Notes: ". $lineData[9]);
             
+
             //create picture 
             $shape = $slide->createDrawingShape();
             $shape->setName('PHPPowerPoint logo')
