@@ -12,7 +12,7 @@ include('header.php');
       min-height: 50%;
       color: white;
       }
-      body, div, form, input, textarea, label { 
+      body, div, form, textarea, label { 
       padding: 0;
       margin: 0;
       outline: none;
@@ -20,6 +20,9 @@ include('header.php');
       font-size: 14px;
       color: white;
       line-height: 22px;
+      }
+      .quantity {
+        color:black;
       }
       h1 {
       position: absolute;
@@ -63,7 +66,7 @@ include('header.php');
       content: "";
       background-color: #1ab189; 
       position: absolute;
-    width: 100%;
+      width: 100%;
       height: 100%;
       }
       input,  textarea {
@@ -169,7 +172,7 @@ include('header.php');
           <h1>PowerPoint Options</h1>
         </div>
         <div class = "dialog"><b>Query Dialog: </b></div>
-        <div class="question">
+        <div class="quantity">
           <label>Number of Pages to Export (1 - 100)</label>
           <div class="question-answer">
             <div>
@@ -180,7 +183,7 @@ include('header.php');
 
         <div class = "dialog"><b>Display Options: </b></div>
 
-        <div class="question">
+        <!-- <div class="question">
           <label><b>Page Format Option 1</b></label>
           <div class="question-answer">
             <div>
@@ -192,16 +195,16 @@ include('header.php');
               <label for="radio_2" class="radio"><span>Text and Picture on either side of a page</span></label>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="question">
-          <label><b>Page Format Option 2</b></label>
+          <label><b>Page Format Option 1</b></label>
           <div class="question-answer">
             <div>
-              <input type="radio" value="none" id="radio_3" name="sales"/>
+              <input type="radio" value="1" id="radio_3" name="option"/>
               <label for="radio_3" class="radio"><span>Picture on Left page, Text on Right Page</span></label>
             </div>
             <div>
-              <input type="radio" value="none" id="radio_4" name="sales"/>
+              <input type="radio" value="2" id="radio_4" name="option"/>
               <label for="radio_4" class="radio"><span>Picture on Right Page, Text on Left Page</span></label>
             </div>
           </div>
