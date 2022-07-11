@@ -183,33 +183,33 @@ include('header.php');
 
         <div class = "dialog"><b>Display Options: </b></div>
 
-        <!-- <div class="question">
-          <label><b>Page Format Option 1</b></label>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="none" id="radio_1" name="strong"/>
-              <label for="radio_1" class="radio"><span>Text and Picture on the same page</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_2" name="strong"/>
-              <label for="radio_2" class="radio"><span>Text and Picture on either side of a page</span></label>
-            </div>
-          </div>
-        </div> -->
         <div class="question">
           <label><b>Page Format Option 1</b></label>
           <div class="question-answer">
             <div>
-              <input type="radio" value="1" id="radio_3" name="option"/>
+              <input type="radio" value="1" id="radio_3" name="option1"/>
               <label for="radio_3" class="radio"><span>Picture on Left page, Text on Right Page</span></label>
             </div>
             <div>
-              <input type="radio" value="2" id="radio_4" name="option"/>
+              <input type="radio" value="2" id="radio_4" name="option1"/>
               <label for="radio_4" class="radio"><span>Picture on Right Page, Text on Left Page</span></label>
             </div>
           </div>
         </div>
-        
+
+        <div class="question">
+          <label><b>Page Format Option 2</b></label>
+          <div class="question-answer">
+            <div>
+              <input type="radio" value="1" id="radio_1" name="option2"/>
+              <label for="radio_1" class="radio"><span>Images on odd pages, Text on even pages</span></label>
+            </div>
+            <div>
+              <input type="radio" value="2" id="radio_2" name="option2"/>
+              <label for="radio_2" class="radio"><span>Images on even pages, Text on odd pages</span></label>
+            </div>
+          </div>
+        </div>
         <div class="btn-block">
           <button type="submit" href="export_powerpoint.php">Export</button>
         </div>
