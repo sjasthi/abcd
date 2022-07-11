@@ -114,7 +114,7 @@ class DocumentLayout
      * @param array<string, int>|string $pValue
      * @param bool $isLandscape
      */
-    public function setDocumentLayout($pValue = self::LAYOUT_SCREEN_4X3, $isLandscape = true): self
+    public function setDocumentLayout($pValue = self::LAYOUT_SCREEN_4X3, $isLandscape = false): self
     {
         switch ($pValue) {
             case self::LAYOUT_SCREEN_4X3:

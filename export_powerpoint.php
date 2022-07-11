@@ -52,16 +52,13 @@ $shape->setName('PHPPowerPoint logo')
 ->setHeight(72)
 ->setOffsetX(20)
 ->setOffsetY(20);
-$shape->getShadow()->setVisible(true)
-->setDirection(90)
-->setDistance(20);
 
 // Create a shape (text)
 $shape = $currentSlide->createRichTextShape()
 ->setHeight(300)
 ->setWidth(600)
-->setOffsetX(170)
-->setOffsetY(180);
+->setOffsetX(70)
+->setOffsetY(230);
 $shape->getActiveParagraph()->getAlignment()->setHorizontal( Alignment::HORIZONTAL_CENTER );
 $textRun = $shape->createTextRun('Thank You For Using ABCD Project!');
 $textRun->getFont()->setBold(true)
@@ -69,9 +66,9 @@ $textRun->getFont()->setBold(true)
 ->setColor( new Color( 'FFE06B20' ) );
 $intdisplay = intval($display);
 if ($intdisplay == 1) {
-    $x_val_pic = 30;
+    $x_val_pic = 120;
     $y_val_pic = 200;
-    $x_val_text = 350;
+    $x_val_text = 80;
     $y_val_text = 200;
 } 
 else {
@@ -116,17 +113,6 @@ if (mysqli_error($mysqli)) {
                 
                 //create slide for text
                 $slide2 = $objPHPPowerPoint->createSlide();
-
-                // Create a shape (name)
-                $shape = $slide2->createRichTextShape()
-                ->setHeight(300)
-                ->setWidth(600)
-                ->setOffsetX(20)
-                ->setOffsetY(0);
-                $textRun = $shape->createTextRun($lineData[0]);
-                $textRun->getFont()->setBold(True)
-                ->setSize(20)
-                ->setColor( new Color( 'black' ) );
               
                 // Create a shape (Description and Did you Know)
                 $shape = $slide2->createRichTextShape()
@@ -155,12 +141,23 @@ if (mysqli_error($mysqli)) {
                 $shape->setName('PHPPowerPoint logo')
                 ->setDescription('PHPPowerPoint logo')
                 ->setPath('images/dress_images/'.$lineData[7])
-                ->setHeight(300)
+                ->setHeight(700)
                 ->setOffsetX($x_val_pic)
                 ->setOffsetY($y_val_pic);
                 $shape->getShadow()->setVisible(true)
                 ->setDirection(90)
                 ->setDistance(20);
+
+                // Create a shape (name)
+                $shape = $slide1->createRichTextShape()
+                ->setHeight(300)
+                ->setWidth(600)
+                ->setOffsetX(300)
+                ->setOffsetY(20);
+                $textRun = $shape->createTextRun($lineData[0]);
+                $textRun->getFont()->setBold(True)
+                ->setSize(20)
+                ->setColor( new Color( 'black' ) );
                         
                 $count++;
             }
@@ -174,8 +171,8 @@ if (mysqli_error($mysqli)) {
                 //testing prints
                 echo("<br><br>");
                 echo("_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________<br>");
-                echo("Name: ".$lineData[0]. "<br>" . "Description: ". $lineData[1] ."<br>" . "Did You Know: ". $lineData[2] ."<br>" . "Category: ". $lineData[3] ."<br>" . "Type: ". $lineData[4] ."<br>" . "State Name: ". $lineData[5] ."<br>" . "Key Words: ". $lineData[6] . "<br>". "Image: ". $lineData[7]. "<br>". "Status: ". $lineData[8]. "<br>". "Notes: ". $lineData[9]);
-                
+                echo("Name: ".$lineData[0]. "<br>" . "Description: ". $lineData[1] ."<br>" . "Did You Know: ". $lineData[2] ."<br>" . "Category: ". $lineData[3] ."<br>" . "Type: ". $lineData[4] ."<br>" . "State Name: ". $lineData[5] ."<br>" . "Key Words: ". $lineData[6] . "<br>". "Image: ". $lineData[7]. "<br>". "Status: ". $lineData[8]. "<br>". "Notes: ". $lineData[9]);               
+               
                 //create slide for Dress image
                 $slide1 = $objPHPPowerPoint->createSlide();
     
@@ -184,54 +181,50 @@ if (mysqli_error($mysqli)) {
                 $shape->setName('PHPPowerPoint logo')
                 ->setDescription('PHPPowerPoint logo')
                 ->setPath('images/dress_images/'.$lineData[7])
-                ->setHeight(300)
+                ->setHeight(700)
                 ->setOffsetX($x_val_pic)
                 ->setOffsetY($y_val_pic);
                 $shape->getShadow()->setVisible(true)
                 ->setDirection(90)
                 ->setDistance(20);
-                
-                //create slide for text
-                $slide2 = $objPHPPowerPoint->createSlide();
 
                 // Create a shape (name)
-                $shape = $slide2->createRichTextShape()
+                $shape = $slide1->createRichTextShape()
                 ->setHeight(300)
                 ->setWidth(600)
-                ->setOffsetX(20)
-                ->setOffsetY(0);
+                ->setOffsetX(300)
+                ->setOffsetY(20);
                 $textRun = $shape->createTextRun($lineData[0]);
                 $textRun->getFont()->setBold(True)
                 ->setSize(20)
                 ->setColor( new Color( 'black' ) );
-    
-                // Create a Shape (Did you Know)
-                $shape = $slide2->createRichTextShape()
-                ->setHeight(300)
-                ->setWidth(600)
-                ->setOffsetX(20)
-                ->setOffsetY(600);
-                $textRun = $shape->createTextRun($lineData[2]);
-                $textRun->getFont()->setBold(True)
-                ->setSize(20)
-                ->setColor( new Color( 'black' ) );
-    
-                // Create a shape (description)
+
+                //create slide for text
+                $slide2 = $objPHPPowerPoint->createSlide();
+              
+                // Create a shape (Description and Did you Know)
                 $shape = $slide2->createRichTextShape()
                 ->setHeight(300)
                 ->setWidth(600)
                 ->setOffsetX($x_val_text)
                 ->setOffsetY($y_val_pic);
-                $textRun = $shape->createTextRun($lineData[1]);
-                $textRun->getFont()->setBold(false)
+                $textRun1 = $shape->createTextRun($lineData[1]);
+                $textRun = $shape->createTextRun("\n\n\nDid you know?: \n");
+                $textRun2 = $shape->createTextRun($lineData[2]);
+                $textRun1->getFont()->setBold(false)
                 ->setSize(20)
                 ->setColor( new Color( 'FFE06B20' ) );
+                $textRun->getFont()->setBold(true)
+                ->setSize(15)
+                ->setColor( new Color( 'Black' ) );
+                $textRun2->getFont()->setBold(false)
+                ->setSize(10)
+                ->setColor( new Color( 'Black' ) );
                         
                 $count++;
             }
         }
-
-         
+                        
         $oWriterPPTX = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
         $oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\sample.pptx");
     }
