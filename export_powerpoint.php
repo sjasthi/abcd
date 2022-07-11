@@ -36,9 +36,9 @@ $display = ($_POST['option1']);
 $display2 = ($_POST['option2']);
 
 $portraitLayout = new DocumentLayout();
-$objPHPPowerPoint = new PhpPresentation();
-
 $portraitLayout->setDocumentLayout(DocumentLayout::LAYOUT_SCREEN_16X9, false);
+
+$objPHPPowerPoint = new PhpPresentation();
 $objPHPPowerPoint->getLayout($portraitLayout);
 
 // Create slide
