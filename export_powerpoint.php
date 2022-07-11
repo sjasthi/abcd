@@ -150,8 +150,8 @@ if (mysqli_error($mysqli)) {
 
                 // Create a shape (name)
                 $shape = $slide1->createRichTextShape()
-                ->setHeight(300)
-                ->setWidth(600)
+                ->setHeight(50)
+                ->setWidth(200)
                 ->setOffsetX(300)
                 ->setOffsetY(20);
                 $textRun = $shape->createTextRun($lineData[0]);
@@ -190,8 +190,8 @@ if (mysqli_error($mysqli)) {
 
                 // Create a shape (name)
                 $shape = $slide1->createRichTextShape()
-                ->setHeight(300)
-                ->setWidth(600)
+                ->setHeight(50)
+                ->setWidth(200)
                 ->setOffsetX(300)
                 ->setOffsetY(20);
                 $textRun = $shape->createTextRun($lineData[0]);
