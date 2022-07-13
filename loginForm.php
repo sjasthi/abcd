@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <input type="password"required autocomplete="off" name='password'/>
           </div>
 
-          <button class="button button-block" name="register" />Register</button> 
+          <button class="button button-block" name="register">Register</button> 
           
           </form>
 

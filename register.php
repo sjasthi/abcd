@@ -1,46 +1,34 @@
-<?php
-/* User registers as a new user, (checks if user exists and password is correct) */
-// require 'db_configuration.php';
-// Escape email to protect against SQL injections
-//include $db_configuration.php
+<html>
+    <style type="text/css">
+        h1 {
+            font-size: 10;
+            color: black;
+        }
+    </style>
 
-$pass = $db->escape_string($_GET['password']);
-$email = $db->escape_string($_GET['email']);
-$sql = "INSERT INTO 'users' (`first_name`, last_name`, `email`, 'password')
-                    VALUES ('$first_name', '$last_name', '$email', '$password')";
-$result = $db->query($sql);
-echo "$first_name', '$last_name', '$email', '$password";
-header("location: index.php");
-echo hello;
+    <?php
+    /* User registers as a new user, (checks if user exists and password is correct) */
 
--- if ( $result->num_rows == 0 ){ // User doesn't exist
---     $_SESSION['message'] = "User with that email doesn't exist!";
---     header("location: error.php");
--- }
--- else { // User exists
---     $user = $result->fetch_assoc();
+    //escape email to protect against SQL injections
+    $pass = $db->escape_string($_POST['password']);
 
---     if ( password_verify($_POST['password'], $user['hash']) ) {
+    //hash password to store in DB
+    $hashPass = password_hash($pass, PASSWORD_DEFAULT);
 
-        
---         $_SESSION['first_name'] = $user['first_name'];
---         $_SESSION['last_name'] = $user['last_name'];
---         $_SESSION['email'] = $user['email'];
---         $_SESSION['password'] = $user['hash'];
---         $_SESSION['active'] = $user['active'];
---         $_SESSION['role'] = $user['role'];
+    $email = $db->escape_string($_POST['email']);
+    $first_name = $db->escape_string($_POST['first_name']);
+    $last_name = $db->escape_string($_POST['last_name']);
 
+    //insert user info into DB
+    $sql = "INSERT INTO users (first_name, last_name, email, hash)
+            VALUES ('$first_name', '$last_name', '$email', '$hashPass')";
 
---         // This is how we'll know the user is logged in
---         $_SESSION['logged_in'] = true;
+    if (mysqli_query($db, $sql)) {
+        echo "<h1> Account Successfully Created! </h1>";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($db);
+    }
 
-        
---     }
---     else {
---         $_SESSION['message'] = "You have entered wrong password, try again!";
---         header("location: error.php");
---     }
--- }
-
-
-
+    // header("location: index.php");
+    ?>
+</html>
