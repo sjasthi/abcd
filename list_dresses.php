@@ -108,6 +108,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>Status</th>
                     <th>Notes</th>
                     <th>Image</th>
+                    <th>Resource</th>
                     <th>Display</th>
                     <th>Modify</th>
                     <th>Delete</th>
@@ -127,6 +128,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <a id="toggle" class="toggle-vis" data-column="8">Status</a> -
                     <a id="toggle" class="toggle-vis" data-column="9">Notes</a> - 
                     <a id="toggle" class="toggle-vis" data-column="10">Image</a> - 
+                    <a id="toggle" class="toggle-vis" data-column="11">Resource</a> - 
                     <a id="toggle" class="toggle-vis" data-column="11">Display</a> -
                     <a id="toggle" class="toggle-vis" data-column="12">Modify</a> - 
                     <a id="toggle" class="toggle-vis" data-column="13">Delete</a> 
@@ -163,6 +165,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <td><div contenteditable="true" onBlur="updateValue(this,'status','<?php echo $ID; ?>')"><?php echo $status; ?></div></span> </td>
                     <td><div contenteditable="true" onBlur="updateValue(this,'notes','<?php echo $ID; ?>')"><?php echo $notes; ?></div></span> </td>
                     <?php echo '<td><img src="images/dress_images/'.$row["image_url"].'" style="width:100px;height:120px;">' ?>
+                    <?php echo '<td><a class="btn btn-info btn-sm" href="display_the_resource.php?name='.$row["name"].'">Resource</a></td>' ?>
                     <?php echo '<td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>' ?>
                     <?php echo '<td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>' ?>
                     <?php echo '<td><a class="btn btn-danger btn-sm" href="deleteDress.php?id='.$row["id"].'">Delete</a></td>' ?>
@@ -181,6 +184,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                       <td>'.$row["status"].' </span> </td>
                       <td>'.$row["notes"].' </span> </td>
                       <td><img class="thumbnailSize" src="' . "images/dress_images/" .$row["image_url"]. '" alt="'.$row["image_url"].'"></td>
+                      <td><a class="btn btn-info btn-sm" href="display_the_resource.php?name='.$row["name"].'">Resource</a></td>
                       <td><a class="btn btn-info btn-sm" href="display_the_dress.php?id='.$row["id"].'">Display</a></td>
                       <td><a class="btn btn-warning btn-sm" href="modify_dress.php?id='.$row["id"].'">Modify</a></td>
                       <td><a class="btn btn-danger btn-sm" href="deleteDress.php?id='.$row["id"].'">Delete</a></td>
