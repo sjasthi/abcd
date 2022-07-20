@@ -69,6 +69,7 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="preferences.php">Preferences<span class="sr-only">(current)</span></a></li>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="about.php">About<span class="sr-only">(current)</span></a></li>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="help.php">Help<span class="sr-only">(current)</span></a></li>';
+            echo '<div class="search-container"><form action="/abcd/searchbar.php" method="POST"><input type="text" placeholder="Search.." name="search"><button type="submit">Submit</button></form></div>';
             
                 if ($_SESSION['role'] == 'admin'){
                     echo '<li class="nav-item active"><a class="nav-link" id="header" href="admin.php">Admin<span class="sr-only">(current)</span></a></li>';
@@ -87,7 +88,8 @@ if(!isset($page_title)) { $page_title = 'Project ABCD'; }
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="about.php">About<span class="sr-only">(current)</span></a></li>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="help.php">Help<span class="sr-only">(current)</span></a></li>';
             echo '<li class="nav-item active"><a class="nav-link" id="header" href="loginForm.php">Login<span class="sr-only">(current)</span></a></li>';
-        }
+            echo '<div class="search-container"><form action="/abcd/searchbar.php" method="POST"><input type="text" placeholder="Search.." name="search"><button type="submit">Submit</button></form></div>';
+            }
             ?>
         </li>
         </ul>

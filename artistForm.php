@@ -1,49 +1,45 @@
 <?php
-ob_start();
+$status = session_status();
+if ($status == PHP_SESSION_NONE) {
+    session_start();
+}
 
-/* Main page with two forms: sign up and log in */
-$page_title = 'Project ABCD > Artist Register';
+require 'bin/functions.php';
 require 'db_configuration.php';
 include('header.php');
+
+$page_title = 'Artist Showcase > Artist Form';
+$page = "artistForm.php";
+verifyLogin($page);
+
+?>
+
+<?php
+// here is the information to connect to the database
+$mysqli = new MySQLi('localhost', 'root', '', 'abcd_db');
+//$resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic ASC");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Artist Registration Form</title>
+  <title>Register/Login Form</title>
   <?php include 'css/css.html'; ?>
 </head>
-
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-
-{
-    if (isset($_POST['registerArtist'])) { //user logging in
-
-        require 'registerArtist.php';
-}
-// Want to add instance of artist already being logged in
-//     elseif (isset($_POST['register'])) { //user registering
-
-//         require 'registerArtist.php';
-
-//     }
-}
-?>
 <body>
   <div class="form">
 
       <ul class="tab-group">
-        <li class= "tab active align = right"><a href="#register">New Artist</a></li>
+        <li class= "tab active align = right"><a href="#registerArtist">New Artist</a></li>
         
       </ul>
 
       <div class="tab-content">
 
-        <div id="register">
+        <div id="registerArtist">
           <h1>Register as an artist affiliate</h1>
           <h2>Please submit this form if you would like to be able to use the images on this website to create products to sell! We will create an artist profile on the site and link to your pages for people to view.</h2>
-
-          <form action="artistForm.php" method="post" autocomplete="off">
+<br>
+          <form action="artistForm.php" method="POST" autocomplete="off" enctype="multipart/form-data">
 
             <div class="field-wrap">
               <label>
@@ -56,7 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
               <label>
                 Profile Picture:<span class="req">*</span>
               </label>
-              <input type="file" required autocomplete="off" name="profile_picture" id="profile_picture" />
+              <input style=width:400px type="file" onchange="loadFile(event)" name="fileToUpload" id="fileToUpload" accept="image/jpg, image/jpeg, image/png" required title="Please enter an image file"></input><br>
+              <img id="output" width="200" />
             </div>
           
 
@@ -71,46 +68,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <label>
               Facebook:
             </label>
-            <input type="url" autocomplete="off" name='facebook'/>
+            <input type="text" autocomplete="off" name='facebook'/>
           </div>
           
           <div class="field-wrap">
             <label>
               Instagram:
             </label>
-            <input type="url" autocomplete="off" name='instagram'/>
+            <input type="text" autocomplete="off" name='instagram'/>
           </div>
           
           <div class="field-wrap">
             <label>
               Twitter:
             </label>
-            <input type="url" autocomplete="off" name='twitter'/>
+            <input type="text" autocomplete="off" name='twitter'/>
           </div>
           
           <div class="field-wrap">
             <label>
               WhatsApp:
             </label>
-            <input type="url" autocomplete="off" name='whatsapp'/>
+            <input type="text" autocomplete="off" name='whatsapp'/>
           </div>
           
           <div class="field-wrap">
             <label>
               Art Site:
             </label>
-            <input type="url" autocomplete="off" name='art_site'/>
+            <input type="text" autocomplete="off" name='art_site'/>
           </div>
           
           <div class="field-wrap">
             <label>
               Other:
             </label>
-            <input type="url" autocomplete="off" name='other'/>
+            <input type="text" autocomplete="off" name='other'/>
           </div>
           
 
-          <button class="button button-block" name="submit">Submit</button> 
+          <input type="submit" name="submit" value="Submit"> 
           
           </form>
 
@@ -121,25 +118,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 </div> <!-- /form -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="js/loginForm.js"></script>
+  <script>
+    var loadFile = function(event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
 </body>
 </html>
-
-
-<?php
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["profile_picture"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["profile_picture"]["tmp_name"]);
-  if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
-    $uploadOk = 1;
-  } else {
-    echo "File is not an image.";
-    $uploadOk = 0;
-  }
-}
-?>
-
