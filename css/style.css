@@ -64,6 +64,15 @@ a:hover {
   overflow-y:scroll;
 }
 
+searchbar input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
 h1 {
   text-align: center;
   color: #ffffff;
