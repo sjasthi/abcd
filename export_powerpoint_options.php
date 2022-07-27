@@ -184,21 +184,7 @@ include('header.php');
         <div class = "dialog"><b>Display Options: </b></div>
 
         <div class="question">
-          <label><b>Page Format Option 1</b></label>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="1" id="radio_3" name="option1"/>
-              <label for="radio_3" class="radio"><span>Picture on Left page, Text on Right Page</span></label>
-            </div>
-            <div>
-              <input type="radio" value="2" id="radio_4" name="option1"/>
-              <label for="radio_4" class="radio"><span>Picture on Right Page, Text on Left Page</span></label>
-            </div>
-          </div>
-        </div>
-
-        <div class="question">
-          <label><b>Page Format Option 2</b></label>
+          <label><b>Page Format Option</b></label>
           <div class="question-answer">
             <div>
               <input type="radio" value="1" id="radio_1" name="option2"/>

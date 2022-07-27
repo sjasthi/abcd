@@ -20,17 +20,35 @@
         font-size: 10px;
     }
 
+
+
 </style>
+<?php
+$con = mysqli_connect("localhost", "root", "", "abcd_db");
+$sql = "SELECT * FROM `dresses`";
+$all_dresses = mysqli_query($con,$sql);
+?>
+
     <!--Check the CeremonyCreated and if Failed, display the error message-->
     <form action="create_the_resource.php" method="POST" enctype="multipart/form-data">
         <br>
         <h3 id="title">Create A Resource</h3> <br>
-        
-        <div>
-            <label>Name</label> <br>
-            <input style=width:400px class="form-control" type="text" name="name" maxlength="100" size="50" required title="Please enter a name"></input>
-        </div>
 
+        <label>Name of Dress</label><br>
+        <select name="name">
+        <?php  
+        while ($dresses = mysqli_fetch_array(
+                        $all_dresses,MYSQLI_ASSOC)):;
+            ?>
+            <option value ="<?php echo $dresses["name"];
+            ?>">
+            <?php echo $dresses["name"];
+            ?>
+            </option>
+            <?php 
+                endwhile; 
+            ?>
+            </select>
         <div>
             <label>Url</label> <br>
             <input style=width:400px class="form-control" type="text" name="url" maxlength="100" size="50" required title="Please enter a url"></input>
