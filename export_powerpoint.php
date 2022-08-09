@@ -32,7 +32,7 @@ require_once 'vendor/autoload.php';
 
 //Option Variables
 $quantity = ($_POST['quantity']);
-$display = ($_POST['option1']);
+$display = 1;
 $display2 = ($_POST['option2']);
 
 $portraitLayout = new DocumentLayout();
@@ -142,7 +142,7 @@ if (mysqli_error($mysqli)) {
                 ->setDescription('PHPPowerPoint logo')
                 ->setPath('images/dress_images/'.$lineData[7])
                 ->setHeight(700)
-                ->setOffsetX($x_val_pic)
+                ->setOffsetX(85)
                 ->setOffsetY($y_val_pic);
                 $shape->getShadow()->setVisible(true)
                 ->setDirection(90)
@@ -182,7 +182,7 @@ if (mysqli_error($mysqli)) {
                 ->setDescription('PHPPowerPoint logo')
                 ->setPath('images/dress_images/'.$lineData[7])
                 ->setHeight(700)
-                ->setOffsetX($x_val_pic)
+                ->setOffsetX(85)
                 ->setOffsetY($y_val_pic);
                 $shape->getShadow()->setVisible(true)
                 ->setDirection(90)
