@@ -32,7 +32,7 @@ require_once 'vendor/autoload.php';
 
 //Option Variables
 $quantity = ($_POST['quantity']);
-$display = ($_POST['option1']);
+$display = 1;
 $display2 = ($_POST['option2']);
 
 $portraitLayout = new DocumentLayout();
@@ -142,7 +142,7 @@ if (mysqli_error($mysqli)) {
                 ->setDescription('PHPPowerPoint logo')
                 ->setPath('images/dress_images/'.$lineData[7])
                 ->setHeight(700)
-                ->setOffsetX($x_val_pic)
+                ->setOffsetX(75)
                 ->setOffsetY($y_val_pic);
                 $shape->getShadow()->setVisible(true)
                 ->setDirection(90)
@@ -182,7 +182,7 @@ if (mysqli_error($mysqli)) {
                 ->setDescription('PHPPowerPoint logo')
                 ->setPath('images/dress_images/'.$lineData[7])
                 ->setHeight(700)
-                ->setOffsetX($x_val_pic)
+                ->setOffsetX(75)
                 ->setOffsetY($y_val_pic);
                 $shape->getShadow()->setVisible(true)
                 ->setDirection(90)
@@ -206,7 +206,7 @@ if (mysqli_error($mysqli)) {
                 $shape = $slide2->createRichTextShape()
                 ->setHeight(300)
                 ->setWidth(600)
-                ->setOffsetX($x_val_text)
+                ->setOffsetX(25)
                 ->setOffsetY($y_val_pic);
                 $textRun1 = $shape->createTextRun($lineData[1]);
                 $textRun = $shape->createTextRun("\n\n\nDid you know?: \n");
