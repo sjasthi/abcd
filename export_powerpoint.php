@@ -206,7 +206,7 @@ if (mysqli_error($mysqli)) {
                 $shape = $slide2->createRichTextShape()
                 ->setHeight(300)
                 ->setWidth(600)
-                ->setOffsetX($x_val_text)
+                ->setOffsetX(25)
                 ->setOffsetY($y_val_pic);
                 $textRun1 = $shape->createTextRun($lineData[1]);
                 $textRun = $shape->createTextRun("\n\n\nDid you know?: \n");
