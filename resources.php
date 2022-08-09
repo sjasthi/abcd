@@ -81,7 +81,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Dress Name</th>
                     <th>URL</th>
                     <th>Type</th>
                     <th>Notes</th>

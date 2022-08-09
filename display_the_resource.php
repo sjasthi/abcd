@@ -42,11 +42,13 @@ if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($db, $_GET['id']);
     $sql = "SELECT * FROM `resources` WHERE id = " . $id;
     $GLOBALS['row_data'] = mysqli_query($db, $sql);
+
 } else if(isset($_GET['name'])) {
 
     $name = mysqli_real_escape_string($db, $_GET['name']);
     $sql = "SELECT * FROM `resources` WHERE name = '" . $name ."'";
     $GLOBALS['row_data'] = mysqli_query($db, $sql);
+
 }
 
 if ($row_data->num_rows > 0) {
@@ -54,7 +56,7 @@ if ($row_data->num_rows > 0) {
     while($row = $row_data->fetch_assoc()) {
       print( '<h2 class= "head">'.$row["name"]. '</h2>');
       print( '
-              <h3 class= "title"> Id </h3><p class= "words">' .$row["id"]. '</p>
+              <h3 class= "title"> Dress Name </h3><p class= "words">' .$row["name"]. '</p>
               <h3 class= "title"> Type </h3><p class= "words">' .$row["type"]. '</p>');
               print('<h3 class= "title"> Url </h3><p class= "words">' 
               .'<a href="'.$row["url"].'" target="_blank">'.$row["url"].'</a>' . '</p>');
@@ -71,7 +73,8 @@ if ($row_data->num_rows > 0) {
       print('<h3 class= "title"> Notes </h3><p class= "words">' .$row["notes"]. '</p>' );
     }
 } else {
-  print('no data');
+  print('We could not find a resource for this dress, click the resource button to create one!<br>');
+  print('<a class="btn btn-info btn-sm" href="create_resource.php">Create a Resource</a>');
 }
 
 ?>
