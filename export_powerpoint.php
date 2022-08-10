@@ -228,7 +228,7 @@ if (mysqli_error($mysqli)) {
         // $oWriterPPTX = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
         // $oWriterPPTX->save(getenv("HOMEDRIVE").getenv("HOMEPATH")."\Downloads" . "\sample.pptx");
         $oWriter = IOFactory::createWriter($objPHPPowerPoint, 'PowerPoint2007');
-        $oWriter->save(__DIR__ . '/abcdsample.pptx');
+        $oWriter->save('images\PPTX' . '/abcdsample.pptx');
     }
 }
 ?>
