@@ -1,3 +1,11 @@
+<html>
+    <style type="text/css">
+        h1 {
+            font-size: 10;
+            color: black;
+        }
+    </style>
+
 <?php
     include_once 'db_configuration.php';
     /* User registers as a new artist, need to check if already artist */

@@ -109,6 +109,7 @@ $mysqli = new MySQLi('localhost', 'root', '', 'abcd_db');
 
           <input type="submit" name="submit" value="Submit"> 
           
+          
           </form>
 
         </div>
