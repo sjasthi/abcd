@@ -674,6 +674,57 @@ ALTER TABLE `dresses`
 ALTER TABLE `resources`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
+--
+-- Create ARTISTS table
+--
+CREATE TABLE `mysql`.`artists` ( `user_id` int(11) NOT NULL, `profile_picture` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `description` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL, `country` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL, `facebook` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `instagram` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `twitter` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `whatsapp` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `art_site` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `other` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `approval_status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending' ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci; ALTER TABLE `mysql`.`artists` ADD PRIMARY KEY (`user_id`);
+
+--
+-- Insert into Artists
+--
+INSERT INTO `artists` (`user_id`, `profile_picture`, `description`, `country`, `facebook`, `instagram`, `twitter`, `whatsapp`, `art_site`, `other`, `approval_status`) VALUES ('0', 'maddypfp.png', 'This is a test description for an artist. I can tell users what I make, more about who I am, etc.', 'United States', 'testfacebook', 'testinstagram', 'testtwitter', 'testwhatsapp', 'testartsite', 'other', 'pending');
+
+--
+-- Table structure for table `resources`
+--
+
+CREATE TABLE `resources` (
+  `id` mediumint NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `notes` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `resources`
+--
+
+INSERT INTO `resources` (`id`, `name`, `url`, `type`, `notes`) VALUES
+(25, 'Namasthe', 'https://www.youtube.com/embed/dQw4w9WgXcQ', 'video', 'testing'),
+(26, 'Salwar Kameez', 'https://www.youtube.com/embed/9NE33fpQuw8', 'video', 'testing');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `resources`
+--
+ALTER TABLE `resources`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `resources`
+--
+ALTER TABLE `resources`
+  MODIFY `id` mediumint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

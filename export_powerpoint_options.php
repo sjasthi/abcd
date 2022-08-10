@@ -8,10 +8,11 @@ include('header.php');
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
-      html, body {
+       html, body {
       min-height: 50%;
       color: white;
       }
+      
       body, div, form, textarea, label { 
       padding: 0;
       margin: 0;
@@ -21,9 +22,11 @@ include('header.php');
       color: white;
       line-height: 22px;
       }
+      
       .quantity {
         color:black;
       }
+     
       h1 {
       position: absolute;
       margin: 0;
@@ -32,6 +35,7 @@ include('header.php');
       color: white;
       z-index: 2;
       }
+      
       .testbox {
       display: flex;
       justify-content: center;
@@ -39,6 +43,7 @@ include('header.php');
       height: inherit;
       padding: 20px;
       }
+     
       .dialog {
       justify-content: left;
       align-items: left;
@@ -46,12 +51,14 @@ include('header.php');
       padding: 20px;
       font-size: 20px;
       }
-      form {
+      
+      .form2 {
       width: 40%;
       padding: 20px;
       border-radius: 6px;
       background: #2a3843;
       }
+      
       .banner {
       position: relative;
       height: 200px;
@@ -62,6 +69,7 @@ include('header.php');
       align-items: center;
       text-align: center;
       }
+      
       .banner::after {
       content: "";
       background-color: #1ab189; 
@@ -69,15 +77,17 @@ include('header.php');
       width: 100%;
       height: 100%;
       }
+      
       input,  textarea {
       margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 3px;
-      }
+      } 
+      
       input {
-      width: calc(100% - 10px);
-      padding: 5px;
+        padding: 5px;
       }
+      
       textarea {
       width: calc(100% - 12px);
       padding: 5px;
@@ -141,7 +151,7 @@ include('header.php');
       margin-top: 10px;
       text-align: center;
       }
-      button {
+      .button2 {
       width: 150px;
       padding: 10px;
       border: none;
@@ -151,7 +161,7 @@ include('header.php');
       color: #fff;
       cursor: pointer;
       }
-      button:hover {
+      .button2:hover {
       background: #12785d;
       }
       @media (min-width: 568px) {}
@@ -163,11 +173,13 @@ include('header.php');
       .name-item input, .name-item div {
       width: calc(50% - 20px);
       }
+
+      
     </style>
   </head>
   <body>
     <div class="testbox">
-    <form method="POST" action="export_powerpoint.php">  
+    <form class="form form2" method="POST" action="export_powerpoint.php">  
         <div class="banner">
           <h1>PowerPoint Options</h1>
         </div>
@@ -197,7 +209,7 @@ include('header.php');
           </div>
         </div>
         <div class="btn-block">
-          <button type="submit" href="export_powerpoint.php">Export</button>
+          <button class="button button2" type="submit" href="export_powerpoint.php">Export</button>
         </div>
       </form>
     </div>
