@@ -7,6 +7,8 @@
     </style>
 
     <?php
+    require 'db_configuration.php';
+
     /* User registers as a new user, (checks if user exists and password is correct) */
 
     //escape email to protect against SQL injections
