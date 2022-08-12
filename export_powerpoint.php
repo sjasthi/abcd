@@ -78,14 +78,16 @@ else {
     $y_val_text = 200;
 }
 
-$mysqli = mysqli_connect('localhost', 'root', '', 'abcd_db');
+require 'bin/functions.php';
+require 'db_configuration.php';
+
+// $mysqli = mysqli_connect('localhost', 'root', '', 'abcd_db');
 $TableName = "dresses";
-
 $strSQL = "SELECT * FROM $TableName";
-$sql = mysqli_query($mysqli, $strSQL);
+$sql = mysqli_query($db, $strSQL);
 
-if (mysqli_error($mysqli)) {
-    echo mysqli_error($mysqli);
+if (mysqli_error($db)) {
+    echo mysqli_error($db);
 } else {
     if($sql->num_rows > 0) {
         $delimiter = ",";
